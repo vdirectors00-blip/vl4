@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VL VALUE LIGHT · IMAGE CONSULTING</title>
+<meta name="description" content="사람의 가치를 발견하고 이미지로 완성합니다. 퍼스널컬러 · 얼굴형 · 골격 분석 기반 토탈 이미지 컨설팅.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700;800&family=Great+Vibes&family=Pinyon+Script&family=Allura&family=Italianno&family=Yellowtail&family=Mr+Dafoe&family=Mrs+Saint+Delafield&display=swap">
+<style>
+:root{
+  --ink:#0d0d0d;
+  --ink-2:#1a1a1a;
+  --paper:#ffffff;
+  --beige:#f0f0ef;
+  --beige-2:#e4e4e3;
+  --beige-deep:#0d0d0d;
+  --gold:#a48848;
+  --gold-soft:#6e5828;
+  --mute:#8c8478;
+  --line:#e6dec8;
+  --line-d:rgba(255,255,255,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  background:var(--paper);color:var(--ink);
+  font-weight:400;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+h1,h2,h3,h4,h5,p,li,span{word-break:keep-all;overflow-wrap:break-word}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Cormorant Garamond',serif;font-weight:500}
+
+/* ── NAV ─────────────────────── */
+.nav{
+  position:absolute;top:0;left:0;right:0;z-index:20;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:24px 56px;color:#f5efe2;
+}
+.nav-logo{display:inline-flex;align-items:center}
+.nav-logo img{height:80px;width:auto;display:block}
+.nav-menu{display:flex;gap:42px;align-items:center}
+.nav-menu a{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:#f5efe2;font-weight:500;transition:color .3s}
+.nav-menu a:hover{color:#c4a462}
+.nav-toggle{display:none;flex-direction:column;gap:5px;width:40px;height:40px;background:none;border:0;cursor:pointer;padding:10px 8px;z-index:101;position:relative}
+.nav-toggle span{display:block;width:24px;height:1.5px;background:#f5efe2;transition:transform .35s,opacity .25s}
+.nav.open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav.open .nav-toggle span:nth-child(2){opacity:0}
+.nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.42);opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s;z-index:99}
+
+/* ── HERO ─────────────────────── */
+.hero{
+  position:relative;min-height:100vh;
+  color:#f5efe2;
+  display:flex;align-items:center;
+  padding:120px 56px 80px;overflow:hidden;
+  background:#0a0a0a;
+}
+.hero-bg{
+  position:absolute;inset:-60px;z-index:0;
+  background-size:cover;background-position:center;
+  filter:blur(36px) saturate(1.05) brightness(.82);
+  transition:background-image 1.6s cubic-bezier(.5,0,.2,1),opacity 1.6s ease;
+  will-change:background-image;
+}
+.hero-bg-overlay{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(ellipse 75% 70% at 28% 50%, rgba(8,6,4,.5) 0%, rgba(8,6,4,.28) 45%, rgba(8,6,4,.12) 75%, rgba(8,6,4,.3) 100%),
+    linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.08) 50%, rgba(0,0,0,.28) 100%);
+}
+.hero > nav{z-index:20}
+.hero > .hero-grid{position:relative;z-index:5}
+.hero-num{
+  position:absolute;left:42px;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:18px;font-size:11px;letter-spacing:3px;color:rgba(31,26,20,.45);
+  z-index:5;
+}
+.hero-num .n{display:flex;align-items:center;gap:14px}
+.hero-num .n::before{content:'';width:24px;height:1px;background:rgba(31,26,20,.3)}
+.hero-num .n.active{color:#1f1a14;font-weight:600}
+.hero-num .n.active::before{background:#a48848;width:42px;height:1.5px}
+.hero-grid{
+  max-width:1440px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:start;
+  position:relative;z-index:3;
+}
+.hero-left{padding-left:60px}
+.vl-mark{
+  position:relative;display:inline-block;
+  margin:-12px 0 36px;
+  height:clamp(220px,22vw,340px);
+}
+.vl-mark img{display:block;height:100%;width:auto}
+.hero-title{
+  font-family:'Nanum Myeongjo','Pretendard Variable',serif;
+  font-size:42px;font-weight:700;line-height:1.4;letter-spacing:-.5px;
+  margin-bottom:28px;color:#f5efe2;
+}
+.hero-sub{
+  font-size:17px;line-height:1.85;color:rgba(245,239,226,.65);
+  letter-spacing:.2px;max-width:520px;
+}
+.hero-right{position:relative;display:flex;justify-content:flex-end;align-items:flex-start;min-height:540px;max-width:540px;justify-self:end;width:100%;margin-right:100px}
+.hero-photo{
+  position:relative;
+  width:100%;max-width:500px;flex:0 0 500px;
+}
+.hero-slides{
+  position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;background:transparent;
+  border-radius:24px;
+  box-shadow:0 12px 40px rgba(0,0,0,.45);
+}
+.hero-slide{
+  position:absolute;inset:0;opacity:0;visibility:hidden;
+  transition:opacity 1.4s cubic-bezier(.5,0,.2,1);
+}
+.hero-slide.active{opacity:1;visibility:visible}
+.hero-slide img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:brightness(.98) contrast(1.04) saturate(.98);
+}
+.hero-circle{
+  position:absolute;top:-44px;left:-44px;z-index:5;
+  width:180px;height:180px;
+  animation:heroSpin 16s linear infinite;
+  pointer-events:none;
+}
+.hero-circle svg{width:100%;height:100%;display:block}
+.hero-circle text{
+  fill:#c4a462;
+  font-family:'Pretendard Variable','Pretendard',sans-serif;
+  font-size:14px;letter-spacing:3px;font-weight:600;text-transform:uppercase;
+}
+@keyframes heroSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.hero-vtext{
+  position:absolute;right:18px;top:50%;transform:translateY(-50%);
+  writing-mode:vertical-rl;text-orientation:mixed;
+  font-family:'Cormorant Garamond',serif;font-weight:500;
+  font-size:14px;letter-spacing:5px;color:rgba(31,26,20,.42);
+  text-transform:uppercase;
+  display:flex;flex-direction:column;gap:32px;z-index:5;
+}
+.hero-vtext .top{color:#a48848;font-size:15px;letter-spacing:6px}
+.hero-scroll{
+  position:absolute;left:60px;bottom:40px;font-size:10.5px;letter-spacing:4px;
+  color:rgba(31,26,20,.55);text-transform:uppercase;z-index:5;
+  display:flex;align-items:center;gap:14px;font-weight:600;
+}
+.hero-scroll::after{content:'';width:60px;height:1px;background:rgba(31,26,20,.35)}
+
+/* ── STATS BAR ─────────────────── */
+.stats{
+  background:var(--beige);padding:64px 56px;
+}
+.stats-grid{
+  max-width:1320px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+}
+.stat{
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+  opacity:0;transform:translateY(28px);
+  transition:opacity .9s cubic-bezier(.5,0,.2,1),transform .9s cubic-bezier(.5,0,.2,1);
+}
+.stat.in{opacity:1;transform:translateY(0)}
+.stat .lbl{
+  font-size:14px;color:var(--ink);font-weight:700;letter-spacing:.2px;line-height:1.4;
+  text-align:center;order:1;
+}
+.stat .num{
+  font-family:'Nanum Myeongjo','Pretendard Variable',serif;font-weight:700;
+  font-size:44px;line-height:1;letter-spacing:-1px;color:var(--ink);
+  display:flex;align-items:baseline;gap:6px;order:2;
+}
+.stat .num small{font-size:13px;letter-spacing:2px;color:var(--gold-soft);font-weight:600;font-family:'Pretendard Variable',sans-serif;text-transform:uppercase}
+
+/* ── WHAT WE DO ─────────────────── */
+.what{
+  padding:120px 56px;background:#fff;
+}
+.what-grid{
+  max-width:1320px;margin:0 auto;
+  display:grid;grid-template-columns:.95fr 1.4fr;gap:80px;
+}
+.what-left .label{
+  font-size:11px;letter-spacing:4px;color:var(--gold-soft);font-weight:700;text-transform:uppercase;margin-bottom:32px;display:block;
+}
+.what-left h2{
+  font-size:34px;font-weight:700;line-height:1.5;letter-spacing:-.5px;color:var(--ink);
+}
+.what-list{display:grid;grid-template-columns:repeat(3,1fr);gap:48px 40px}
+.what-item{}
+.what-item .ico{
+  width:48px;height:48px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold-soft);margin-bottom:20px;
+  transition:color .35s,transform .35s;
+}
+.what-item:hover .ico{color:var(--gold);transform:translateY(-3px)}
+.what-item .ico svg{width:38px;height:38px;stroke-width:1}
+.what-item h4{
+  font-size:16px;font-weight:700;color:var(--ink);letter-spacing:-.2px;margin-bottom:8px;
+}
+.what-item p{font-size:13px;color:var(--mute);line-height:1.7;letter-spacing:.1px}
+
+/* ── PORTFOLIO ─────────────────── */
+.portfolio{
+  background:#ece4d3;padding:0;
+}
+.pf-grid{
+  display:grid;grid-template-columns:1fr 2.6fr;
+  align-items:stretch;min-height:540px;
+}
+.pf-left{
+  background:var(--beige-deep);color:#fff;
+  padding:96px 56px;display:flex;flex-direction:column;justify-content:center;
+}
+.pf-left .label{
+  font-size:11px;letter-spacing:4px;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:28px;display:block;
+}
+.pf-left h2{
+  font-size:32px;font-weight:700;line-height:1.45;letter-spacing:-.5px;color:#fff;margin-bottom:42px;
+}
+.btn-more{
+  display:inline-flex;align-items:center;gap:18px;
+  padding:14px 28px;border:1px solid rgba(255,255,255,.35);
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:600;color:#fff;
+  transition:background .3s,border-color .3s,color .3s;
+  width:fit-content;
+}
+.btn-more:hover{background:#fff;border-color:#fff;color:var(--ink)}
+.btn-more::after{content:'→';font-size:14px}
+.pf-cards{
+  background:#ece4d3;padding:64px 48px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:start;
+}
+.pf-card{display:flex;flex-direction:column}
+.pf-card .img{aspect-ratio:3/4;overflow:hidden;background:#1a1610;margin-bottom:18px}
+.pf-card .img img{width:100%;height:100%;object-fit:cover;transition:transform 1.5s cubic-bezier(.2,.8,.2,1)}
+.pf-card:hover .img img{transform:scale(1.04)}
+.pf-card h4{font-size:18px;font-weight:700;color:var(--ink);letter-spacing:-.3px;margin-bottom:10px}
+.pf-card p{font-size:14.5px;color:#6a604a;line-height:1.6;letter-spacing:.1px}
+
+/* ── DIRECTOR ─────────────────── */
+.director-sec{
+  background:#ffffff;color:var(--ink);padding:0;
+}
+.dir-grid{
+  display:grid;grid-template-columns:1fr 2.6fr;gap:0;
+  align-items:stretch;min-height:680px;position:relative;
+}
+.dir-photo{
+  position:relative;background:#ebebea;align-self:stretch;
+  overflow:visible;
+}
+.dir-photo .img{
+  position:absolute;right:-45%;bottom:0;z-index:3;
+}
+.dir-photo .img img{
+  max-height:620px;width:auto;height:auto;display:block;
+}
+.dir-photo .sig{
+  position:absolute;
+  font-family:'Allura','Parisienne','Great Vibes',cursive;font-weight:400;
+  font-size:150px;color:var(--gold);
+  letter-spacing:1px;line-height:.95;
+  pointer-events:none;z-index:1;opacity:.95;
+  white-space:nowrap;
+}
+.dir-photo .sig-1{top:8%;left:25%;transform:rotate(-4deg)}
+.dir-photo .sig-2{top:22%;left:42%;transform:rotate(-2deg)}
+.dir-photo .sig-m{display:none}
+.dir-right{
+  display:grid;grid-template-columns:1fr 1.5fr;gap:60px;
+  padding:180px 64px 60px 24%;align-items:start;
+}
+.dir-info .tag{font-size:13px;letter-spacing:3.5px;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:22px;display:block}
+.dir-info h3{
+  font-size:38px;font-weight:800;letter-spacing:-.8px;margin-bottom:36px;color:var(--ink);
+}
+.dir-info ul{list-style:none;display:grid;gap:16px}
+.dir-info li{font-size:17px;color:#3a342c;padding-left:20px;position:relative;line-height:1.6;font-weight:500}
+.dir-info li::before{content:'';position:absolute;left:0;top:13px;width:10px;height:1px;background:var(--gold)}
+.dir-clients{padding-top:42px}
+.dir-clients h4{font-size:24px;color:var(--ink);font-weight:800;margin-bottom:32px;letter-spacing:-.4px;line-height:1.2}
+.client-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0;align-items:stretch;justify-items:stretch;
+  border-top:1px solid #d8d2c4;border-left:1px solid #d8d2c4;
+}
+.client-cell{
+  width:100%;height:140px;
+  display:flex;align-items:center;justify-content:center;
+  padding:24px 28px;
+  border-right:1px solid #d8d2c4;border-bottom:1px solid #d8d2c4;
+  transition:background .3s;
+}
+.client-cell:hover{background:#fafaf6}
+.client-cell img{
+  max-width:85%;max-height:80%;width:auto;height:auto;
+  object-fit:contain;display:block;
+}
+
+/* ── CONTACT ─────────────────── */
+.contact{
+  background:var(--ink);color:#fff;padding:96px 56px 80px;border-top:1px solid var(--line-d);
+  --gold:#c0a06a;--gold-soft:#a08858;
+}
+.contact-grid{
+  max-width:1440px;margin:0 auto;
+  display:grid;grid-template-columns:1.1fr 2fr .8fr;gap:60px;align-items:center;
+}
+.contact-left .tag{font-size:11px;letter-spacing:3.5px;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:18px;display:block}
+.contact-left h3{font-size:26px;font-weight:700;letter-spacing:-.3px;margin-bottom:14px;line-height:1.4}
+.contact-left p{font-size:13.5px;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:24px}
+.btn-inquire{
+  display:inline-flex;align-items:center;gap:14px;
+  padding:14px 30px;background:var(--gold);color:var(--ink);
+  font-size:11.5px;letter-spacing:3px;text-transform:uppercase;font-weight:700;
+  transition:background .3s;
+}
+.btn-inquire:hover{background:#3a3a3e}
+.btn-inquire::after{content:'→';font-size:13px}
+.contact-info{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;border-left:1px solid var(--line-d);border-right:1px solid var(--line-d);padding:0 36px}
+.ci{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;padding:14px 6px}
+.ci .ic{
+  width:auto;height:auto;border:0;border-radius:0;background:none;
+  display:flex;align-items:center;justify-content:center;color:var(--gold);
+}
+.ci .ic svg{width:30px;height:30px;stroke-width:1.4}
+.ci .v{font-size:13px;color:#fff;font-weight:600;letter-spacing:.1px;word-break:break-all}
+.ci small{font-size:10.5px;color:rgba(255,255,255,.5);letter-spacing:2px;text-transform:uppercase}
+.contact-right{display:flex;flex-direction:column;align-items:center;gap:8px}
+.contact-right .mark-img{
+  width:auto;height:120px;display:block;margin-bottom:12px;
+}
+.contact-right .nm{font-size:14px;letter-spacing:4px;color:#fff;font-weight:700}
+.contact-right .desc{font-size:9.5px;letter-spacing:3px;color:rgba(255,255,255,.55);text-transform:uppercase}
+
+footer.foot{background:var(--ink);color:rgba(255,255,255,.4);text-align:center;padding:32px 24px;font-size:11px;letter-spacing:1.5px;border-top:1px solid var(--line-d)}
+
+/* ── RESPONSIVE ─────────────────── */
+@media (max-width:1200px){
+  .what-grid{grid-template-columns:1fr;gap:48px}
+  .pf-grid{grid-template-columns:1fr;min-height:auto}
+  .pf-left{padding:60px 32px;align-items:center;text-align:center}
+  .pf-cards{padding:48px 24px;grid-template-columns:repeat(4,1fr);gap:14px}
+  .dir-grid{grid-template-columns:1fr;min-height:auto}
+  .dir-photo{min-height:540px;display:flex;justify-content:center;align-items:flex-end;padding:90px 24px 0;overflow:visible}
+  .dir-photo .img{position:relative;right:auto;bottom:auto}
+  .dir-photo .img img{max-height:500px}
+  .dir-photo .sig{font-size:120px}
+  .dir-photo .sig-1{top:6%;left:12%;transform:rotate(-4deg)}
+  .dir-photo .sig-2{top:20%;left:32%;transform:rotate(-2deg)}
+  .dir-right{grid-template-columns:1fr;gap:48px;padding:64px 32px}
+  .dir-clients{padding-top:0}
+  .client-grid{grid-template-columns:repeat(3,1fr)}
+  .contact-grid{grid-template-columns:1fr;gap:36px;text-align:center}
+  .contact-right{align-items:center}
+  .contact-info{padding:24px 0;border-left:0;border-right:0;border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d)}
+}
+@media (max-width:900px){
+  .nav{padding:18px 24px}
+  .nav-menu{
+    position:fixed;top:0;right:0;bottom:0;width:78%;max-width:340px;
+    background:var(--ink);flex-direction:column;flex-wrap:nowrap;align-items:flex-start;
+    justify-content:flex-start;gap:0;padding:96px 36px 48px;margin:0;border:0;
+    transform:translateX(105%);transition:transform .42s cubic-bezier(.5,0,.2,1);
+    box-shadow:-12px 0 50px rgba(0,0,0,.32);z-index:100;overflow-y:auto;
+  }
+  .nav.open .nav-menu{transform:translateX(0)}
+  .nav-menu a{font-size:15px;letter-spacing:1.5px;width:100%;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.12);color:#f5efe2}
+  .nav-backdrop{display:block}
+  .nav.open .nav-backdrop{opacity:1;visibility:visible}
+  .nav-toggle{display:flex}
+  .nav-logo img{height:60px}
+  /* 모바일 전체 가운데 정렬 */
+  .hero-left,.hero-title,.hero-sub,
+  .what-left,.what-item,
+  .pf-left,.pf-card,
+  .dir-info,.dir-clients,
+  .contact-left,.contact-right{text-align:center}
+  .hero-left,.what-left,.pf-left,.dir-info,.dir-clients,.contact-left{align-items:center}
+  .dir-info ul li{padding-left:0;text-align:center}
+  .dir-info ul li::before{display:none}
+
+  .hero{padding:110px 24px 60px;min-height:auto}
+  .hero-grid{grid-template-columns:1fr;gap:36px;align-items:center;justify-items:center}
+  .hero-left{padding-left:0;display:flex;flex-direction:column}
+  .vl-mark{height:clamp(180px,40vw,260px);margin:0 auto 24px}
+  .hero-title{font-size:28px;line-height:1.45;margin-bottom:18px}
+  .hero-sub{font-size:15px;max-width:none;margin:0 auto}
+  .hero-right{justify-content:center;align-items:center;min-height:auto;max-width:none;justify-self:center;width:100%;margin:0 auto}
+  .hero-photo{width:100%;max-width:280px;flex:0 0 auto;margin:0 auto}
+
+  .stats{padding:48px 20px}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:28px 16px;justify-items:center}
+  .stat{gap:10px;justify-content:center}
+  .stat .num{font-size:34px;justify-content:center}
+  .stat .lbl{font-size:13px}
+
+  .what,.director-sec,.contact{padding:64px 20px}
+  .what-left h2{font-size:24px;line-height:1.45}
+  .what-list{grid-template-columns:repeat(2,1fr);gap:32px 20px;justify-items:center}
+  .what-item{display:flex;flex-direction:column;align-items:center}
+  .what-item .ico{width:42px;height:42px;margin-bottom:14px}
+  .what-item .ico svg{width:34px;height:34px}
+  .what-item h4{font-size:15px}
+
+  .pf-left{padding:54px 24px}
+  .pf-left h2{font-size:24px}
+  .btn-more{margin:0 auto}
+  .pf-cards{padding:40px 18px;grid-template-columns:repeat(2,1fr);gap:36px 14px}
+  .pf-card{align-items:center}
+  .pf-card h4{font-size:16px}
+  .pf-card p{font-size:13px}
+
+  .dir-photo{min-height:460px;padding:40px 24px 0;overflow:visible}
+  .dir-photo .img img{max-height:400px}
+  .dir-photo .sig{z-index:5;opacity:1}
+  .dir-photo .sig-1,.dir-photo .sig-2{display:none}
+  .dir-photo .sig-m{display:block;font-size:82px;top:auto;left:auto;bottom:-46px;right:4%;transform:rotate(-3deg);white-space:nowrap}
+  .dir-info .tag{font-size:12px}
+  .dir-info h3{font-size:30px;margin-bottom:24px}
+  .dir-info li{font-size:15px}
+  .dir-clients h4{font-size:20px;margin-bottom:24px}
+  .client-cell{height:110px;padding:18px}
+
+  .contact-grid{gap:32px}
+  .contact-left h3{font-size:22px}
+  .btn-inquire{margin:0 auto}
+  .contact-info{grid-template-columns:repeat(2,1fr);gap:18px}
+  .contact-right .mark-img{height:90px;margin-left:auto;margin-right:auto}
+  .contact-right .nm{font-size:13px}
+}
+@media (max-width:480px){
+  .nav-logo img{height:48px}
+  .vl-mark{height:clamp(150px,38vw,200px);margin:0 0 18px}
+  .hero-title{font-size:24px}
+  .hero-sub{font-size:14px}
+  .stats-grid{grid-template-columns:1fr 1fr;gap:16px}
+  .stat .num{font-size:28px}
+  .what-left h2{font-size:21px}
+  .what-list{grid-template-columns:repeat(2,1fr);gap:26px 14px}
+  .what-item h4{font-size:13.5px}
+  .what-item p{font-size:12px}
+  .what-item .ico{width:38px;height:38px}
+  .what-item .ico svg{width:30px;height:30px}
+  .pf-left{align-items:center;text-align:center;padding:42px 20px}
+  .pf-left h2{font-size:22px}
+  .pf-cards{grid-template-columns:repeat(2,1fr);gap:32px 10px;padding:32px 16px}
+  .pf-card h4{font-size:13.5px}
+  .pf-card p{font-size:11.5px}
+  .pf-card .img{aspect-ratio:1/1;margin-bottom:10px}
+  .dir-photo{min-height:400px;padding:32px 18px 0;overflow:visible}
+  .dir-photo .img img{max-height:340px}
+  .dir-photo .sig-m{font-size:64px;bottom:-38px;right:4%}
+  .hero-photo{max-width:240px}
+  .dir-info h3{font-size:26px}
+  .dir-info li{font-size:14px}
+  .dir-clients h4{font-size:18px}
+  .client-grid{grid-template-columns:1fr 1fr}
+  .client-cell{height:96px;padding:14px}
+  .contact-left h3{font-size:20px}
+  .contact-info{grid-template-columns:repeat(2,1fr);gap:24px 12px}
+  .ci{padding:10px 4px}
+  .ci .v{font-size:12px}
+  .ci .ic svg{width:26px;height:26px}
+  .contact-right .mark-img{height:76px}
+}
+</style>
+</head>
+<body>
+
+<!-- ICONS DEFS -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></g></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></g></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 19c0-3 2.7-5 6-5s6 2 6 5M15 19c0-2 1.5-3.5 4-3.5s3 1.5 3 3"/></g></symbol>
+    <symbol id="i-badge" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="5"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></g></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-4.7 0-8.5 3.6-8.5 8 0 4 3 6.5 6.5 6.5.7 0 1.2-.6 1.2-1.3 0-.4-.1-.7-.3-1-.2-.3-.3-.6-.3-1 0-.8.6-1.4 1.4-1.4h2.3c2.6 0 4.7-2 4.7-4.4 0-3-3.1-5.4-7-5.4z"/><circle cx="8" cy="10.5" r=".9" fill="currentColor"/><circle cx="11" cy="7.5" r=".9" fill="currentColor"/><circle cx="15" cy="8.5" r=".9" fill="currentColor"/><circle cx="16.5" cy="12" r=".9" fill="currentColor"/></g></symbol>
+    <symbol id="i-face" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="11" rx="5.2" ry="7.2"/><path d="M6.8 10.5c-.85.18-1.4.92-1.4 1.7 0 .8.55 1.55 1.4 1.75"/><path d="M17.2 10.5c.85.18 1.4.92 1.4 1.7 0 .8-.55 1.55-1.4 1.75"/><path d="M10 21h4"/></g></symbol>
+    <symbol id="i-frame" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5a1.8 1.8 0 1 0 0 3.6 1.8 1.8 0 0 0 0-3.6z"/><path d="M9.2 8c-.5.8-.9 1.8-.9 2.7v.8c0 .4.3.7.7.7h.5l-.4 8.3M14.8 8c.5.8.9 1.8.9 2.7v.8c0 .4-.3.7-.7.7h-.5l.4 8.3"/><path d="M11.5 13h1M11.5 16h1"/></g></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 8h13l-1.2 11.5a1 1 0 0 1-1 .9H7.7a1 1 0 0 1-1-.9z"/><path d="M9 8.5V6a3 3 0 0 1 6 0v2.5"/><path d="M9 12v1M15 12v1"/></g></symbol>
+    <symbol id="i-board" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="11" rx="1"/><path d="M12 15.5v4.5M8.5 20.5h7"/><path d="M7 8.5h7M7 11.5h5"/></g></symbol>
+    <symbol id="i-tie" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8M9 3l-.5 4h7L15 3M9.5 7l-1.5 11.5L12 22l4-3.5L14.5 7"/><path d="M10 9h4"/></g></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-3 2c1 2 3 4 5 5l2-3 5 2v4c0 1-1 2-2 2-9 0-15-6-15-15 0-1 1-2 2-2z"/></g></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 7 9-7"/></g></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></g></symbol>
+    <symbol id="i-naver" viewBox="0 0 24 24"><path fill="currentColor" d="M6 5h4l4 7V5h4v14h-4l-4-7v7H6z"/></symbol>
+  </defs>
+</svg>
+
+<!-- ──────── HERO ──────── -->
+<div class="nav-backdrop"></div>
+
+<section class="hero">
+  <div class="hero-bg" id="heroBg" style="background-image:url('vl-1.jpg')"></div>
+  <div class="hero-bg-overlay"></div>
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo"><img src="logo2.png" alt="VL VALUE LIGHT"></a>
+    <div class="nav-menu">
+      <a href="about2.html">ABOUT</a>
+      <a href="service.html">SERVICE</a>
+      <a href="portfolio.html">PORTFOLIO</a>
+      <a href="lecture.html">LECTURE</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="hero-grid">
+    <div class="hero-left">
+      <span class="vl-mark" aria-label="VL VALUE LIGHT">
+        <img src="vl-symbol.png" alt="VL VALUE LIGHT">
+      </span>
+      <h1 class="hero-title">사람의 가치를 발견하고<br>이미지로 완성합니다</h1>
+      <p class="hero-sub">퍼스널컬러 · 얼굴형 · 골격 분석을 기반으로<br>개인과 기업의 이미지를 설계합니다</p>
+    </div>
+    <div class="hero-right">
+      <div class="hero-photo">
+        <div class="hero-slides">
+          <div class="hero-slide active"><img src="vl-1.jpg" alt="VL 1"></div>
+          <div class="hero-slide"><img src="vl-2.jpg" alt="VL 2"></div>
+          <div class="hero-slide"><img src="vl-3.jpg" alt="VL 3"></div>
+          <div class="hero-slide"><img src="vl-4.jpg" alt="VL 4"></div>
+          <div class="hero-slide"><img src="vl-5.jpg" alt="VL 5"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ──────── STATS ──────── -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="lbl">패션 실무 경력</div>
+      <div class="num">15<small>YEARS</small></div>
+    </div>
+    <div class="stat">
+      <div class="lbl">기업·기관 강의 진행</div>
+      <div class="num">100<small>+</small></div>
+    </div>
+    <div class="stat">
+      <div class="lbl">이미지 컨설팅 진행</div>
+      <div class="num">2,000<small>+</small></div>
+    </div>
+    <div class="stat">
+      <div class="lbl">전문 자격 보유</div>
+      <div class="num">3</div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────── WHAT WE DO ──────── -->
+<section class="what" id="what">
+  <div class="what-grid">
+    <div class="what-left">
+      <span class="label">WHAT WE DO</span>
+      <h2>당신의 가치를<br>가장 잘 보여주는<br>이미지를 디자인합니다</h2>
+    </div>
+    <div class="what-list">
+      <div class="what-item">
+        <span class="ico"><svg><use href="#i-palette"/></svg></span>
+        <h4>퍼스널컬러 컨설팅</h4>
+        <p>개인의 고유한 매력을<br>찾아주는 컬러 분석</p>
+      </div>
+      <div class="what-item">
+        <span class="ico"><svg><use href="#i-face"/></svg></span>
+        <h4>얼굴형 진단</h4>
+        <p>얼굴형 분석을 통한<br>이미지 밸런스 설계</p>
+      </div>
+      <div class="what-item">
+        <span class="ico"><svg><use href="#i-frame"/></svg></span>
+        <h4>골격(바디프레임) 진단</h4>
+        <p>체형 분석을 통한<br>스타일링 솔루션 제안</p>
+      </div>
+      <div class="what-item">
+        <span class="ico"><svg><use href="#i-bag"/></svg></span>
+        <h4>쇼핑 동행</h4>
+        <p>체형과 이미지에 맞는<br>맞춤 쇼핑 동행</p>
+      </div>
+      <div class="what-item">
+        <span class="ico"><svg><use href="#i-board"/></svg></span>
+        <h4>기업 강의</h4>
+        <p>조직의 이미지 향상을 위한<br>맞춤형 교육 프로그램</p>
+      </div>
+      <div class="what-item">
+        <span class="ico"><svg><use href="#i-tie"/></svg></span>
+        <h4>취업·면접 컨설팅</h4>
+        <p>합격을 부르는<br>이미지 전략 컨설팅</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────── PORTFOLIO ──────── -->
+<section class="portfolio" id="portfolio">
+  <div class="pf-grid">
+    <div class="pf-left">
+      <span class="label">OUR PORTFOLIO</span>
+      <h2>다양한 경험과<br>전문성으로<br>신뢰를 만듭니다</h2>
+      <a href="#" class="btn-more">VIEW MORE</a>
+    </div>
+    <div class="pf-cards">
+      <div class="pf-card">
+        <div class="img"><img src="기업강의.jpg" alt="기업 강의"></div>
+        <h4>기업 강의</h4>
+        <p>삼성, 공공기관,<br>기업 등 다수 출강</p>
+      </div>
+      <div class="pf-card">
+        <div class="img"><img src="p-consult.jpg" alt="이미지 컨설팅"></div>
+        <h4>이미지 컨설팅</h4>
+        <p>개인별 맞춤 분석 및<br>1:1 컨설팅</p>
+      </div>
+      <div class="pf-card">
+        <div class="img"><img src="학교강의.jpg" alt="학교·기관 출강"></div>
+        <h4>학교·기관 출강</h4>
+        <p>대학, 고등학교, 관공서<br>진로 및 이미지 교육</p>
+      </div>
+      <div class="pf-card">
+        <div class="img"><img src="쇼핑동행.jpg" alt="쇼핑 동행"></div>
+        <h4>쇼핑 동행</h4>
+        <p>개인 스타일에 맞는<br>쇼핑 가이드</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────── DIRECTOR ──────── -->
+<section class="director-sec">
+  <div class="dir-grid">
+    <div class="dir-photo">
+      <span class="sig sig-1">Park</span>
+      <span class="sig sig-2">Juhae</span>
+      <span class="sig sig-m">Park Juhae</span>
+      <div class="img"><img src="D1.png" alt="대표 박주해"></div>
+    </div>
+    <div class="dir-right">
+      <div class="dir-info">
+        <span class="tag">Director</span>
+        <h3>대표 박주해</h3>
+        <ul>
+          <li>패션 실무 경력 15년</li>
+          <li>일본 얼굴형 진단 1급</li>
+          <li>일본 골격 진단 1급</li>
+          <li>퍼스널컬러 전문강사</li>
+          <li>기업·학교·기관 강의 다수 진행</li>
+        </ul>
+      </div>
+      <div class="dir-clients">
+        <h4>주요 출강·협업 기관</h4>
+        <div class="client-grid">
+          <div class="client-cell"><img src="강서구청.png" alt="강서구청"></div>
+          <div class="client-cell"><img src="삼성.png" alt="SAMSUNG BIOEPIS"></div>
+          <div class="client-cell"><img src="인하대학교.jpg" alt="인하대학교"></div>
+          <div class="client-cell"><img src="창원여고.JPG" alt="창원여자고등학교"></div>
+          <div class="client-cell"><img src="의료원.png" alt="국립중앙의료원"></div>
+          <div class="client-cell"><img src="명지병원.png" alt="명지병원"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────── CONTACT ──────── -->
+<section class="contact" id="contact">
+  <div class="contact-grid">
+    <div class="contact-left">
+      <span class="tag">Contact</span>
+      <h3>협업 및 강의 문의</h3>
+      <p>기업 강의, 컨설팅, 협업 제안 등<br>언제든지 문의주세요.</p>
+      <a href="mailto:vl.director00@gmail.com" class="btn-inquire">문의하기</a>
+    </div>
+    <div class="contact-info">
+      <a href="tel:01054901146" class="ci">
+        <span class="ic"><svg><use href="#i-phone"/></svg></span>
+        <small>Phone</small>
+        <span class="v">010-5490-1146</span>
+      </a>
+      <a href="mailto:vl.director00@gmail.com" class="ci">
+        <span class="ic"><svg><use href="#i-mail"/></svg></span>
+        <small>Mail</small>
+        <span class="v">vl.director00<br>@gmail.com</span>
+      </a>
+      <a href="https://www.instagram.com/value_light_" target="_blank" rel="noopener" class="ci">
+        <span class="ic"><svg><use href="#i-ig"/></svg></span>
+        <small>Instagram</small>
+        <span class="v">@value_light_</span>
+      </a>
+      <a href="https://map.naver.com/p/entry/place/1079886156?placePath=/ticket?entry=plt&amp;from=map&amp;fromPanelNum=1&amp;additionalHeight=76&amp;timestamp=202606181427&amp;locale=ko&amp;svcName=map_pcv5&amp;from=map&amp;fromPanelNum=1&amp;additionalHeight=76&amp;timestamp=202606181427&amp;locale=ko&amp;svcName=map_pcv5&amp;searchType=place&amp;lng=126.6653853&amp;lat=37.3803547&amp;c=15.00,0,0,0,dh" target="_blank" rel="noopener" class="ci">
+        <span class="ic"><svg><use href="#i-naver"/></svg></span>
+        <small>Reservation</small>
+        <span class="v">네이버 예약</span>
+      </a>
+    </div>
+    <div class="contact-right">
+      <img class="mark-img" src="vl-symbol.png" alt="VL Symbol">
+      <span class="nm">VL VALUE LIGHT</span>
+      <span class="desc">IMAGE CONSULTING</span>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">© 2026 VL · VALUE LIGHT IMAGE CONSULTING. All Rights Reserved.</footer>
+
+<script>
+// Mobile nav toggle (햄버거 드로어)
+(function(){
+  var n=document.getElementById("nav");
+  if(!n)return;
+  var t=n.querySelector(".nav-toggle");
+  var b=document.querySelector(".nav-backdrop");
+  function c(){n.classList.remove("open");document.body.style.overflow=""}
+  if(t){t.addEventListener("click",function(){var o=n.classList.toggle("open");document.body.style.overflow=o?"hidden":"";t.setAttribute("aria-expanded",o)})}
+  if(b){b.addEventListener("click",c)}
+  n.querySelectorAll(".nav-menu a").forEach(function(a){a.addEventListener("click",c)});
+})();
+
+// Hero auto slideshow (5 slides crossfade) + 배경 블러 동기화
+(function(){
+  const slides = document.querySelectorAll('.hero-slide');
+  const heroBg = document.getElementById('heroBg');
+  if(slides.length < 2) return;
+  let i = 0;
+  function syncBg(){
+    if(!heroBg) return;
+    const img = slides[i].querySelector('img');
+    if(img && img.src){ heroBg.style.backgroundImage = `url('${img.getAttribute('src')}')`; }
+  }
+  syncBg();
+  setInterval(() => {
+    slides[i].classList.remove('active');
+    i = (i + 1) % slides.length;
+    slides[i].classList.add('active');
+    syncBg();
+  }, 3800);
+})();
+
+// Stats: 하나씩 아래에서 위로 올라오는 시간차 등장
+(function(){
+  const stats = document.querySelectorAll('.stat');
+  if(!stats.length) return;
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        stats.forEach((stat, idx) => {
+          setTimeout(() => stat.classList.add('in'), idx * 180);
+        });
+        obs.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+  io.observe(stats[0]);
+})();
+</script>
+
+</body>
+</html>

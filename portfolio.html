@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PORTFOLIO | VL VALUE LIGHT</title>
+<meta name="description" content="VL VALUE LIGHT 이미지 컨설팅 포트폴리오 — 컬러 진단·이미지 컨설팅·강의·쇼핑 동행 현장">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* PORTFOLIO HERO (pm-1 풀와이드) */
+.pf-hero{position:relative;width:100%;height:78vh;min-height:520px;max-height:780px;overflow:hidden;background:#0a0a0a}
+.pf-hero > img.pf-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:brightness(.78);z-index:1}
+.pf-hero-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(135deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,.3) 45%,rgba(0,0,0,.5) 100%);pointer-events:none}
+.pf-hero-txt{position:absolute;left:8%;top:50%;transform:translateY(-50%);z-index:5;max-width:560px;color:#fff}
+.pf-hero-eyebrow{font-size:14px;letter-spacing:5px;color:var(--gold);font-weight:600;text-transform:uppercase;margin-bottom:28px;display:block}
+.pf-hero-txt h1{font-family:'Cormorant Garamond',serif;font-size:84px;font-weight:600;line-height:1;letter-spacing:-1px;margin-bottom:28px;color:#fff}
+.pf-hero-txt p{font-size:16px;color:rgba(255,255,255,.78);line-height:1.85;letter-spacing:.1px;max-width:440px}
+
+/* INTRO BAND */
+.pf-intro{padding:100px 32px 60px;max-width:980px;margin:0 auto;text-align:center}
+.pf-intro-eyebrow{font-size:13px;letter-spacing:5px;color:var(--gold-soft,#a48948);font-weight:700;text-transform:uppercase;margin-bottom:24px;display:block}
+.pf-intro h2{font-size:36px;font-weight:700;line-height:1.45;letter-spacing:-.5px;color:var(--ink);margin-bottom:22px}
+.pf-intro p{font-size:15px;color:#666;line-height:1.9}
+
+/* CATEGORY SECTIONS */
+.pf-cat{padding:60px 32px;max-width:1320px;margin:0 auto}
+.pf-cat-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;gap:24px;flex-wrap:wrap}
+.pf-cat-head .lbl{font-size:12px;letter-spacing:4.5px;color:var(--gold-soft,#a48948);font-weight:700;text-transform:uppercase;margin-bottom:10px;display:block}
+.pf-cat-head h3{font-size:30px;font-weight:800;letter-spacing:-.5px;color:var(--ink);line-height:1.2}
+.pf-cat-head .meta{font-size:13px;color:#888;letter-spacing:.5px}
+
+/* 가로 슬라이드 (모든 카테고리) */
+.pf-slider-wrap{position:relative}
+.pf-slider{
+  display:flex;gap:18px;
+  overflow-x:auto;overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  padding:4px 4px 24px;
+  scrollbar-width:thin;scrollbar-color:rgba(0,0,0,.18) transparent;
+}
+.pf-slider::-webkit-scrollbar{height:6px}
+.pf-slider::-webkit-scrollbar-track{background:transparent}
+.pf-slider::-webkit-scrollbar-thumb{background:rgba(0,0,0,.18);border-radius:3px}
+.pf-slider::-webkit-scrollbar-thumb:hover{background:rgba(0,0,0,.32)}
+.pf-card{
+  flex:0 0 380px;width:380px;
+  position:relative;overflow:hidden;background:#1a1a1a;border-radius:6px;
+  aspect-ratio:1/1;cursor:pointer;
+  scroll-snap-align:start;
+  transition:box-shadow .4s,transform .4s;
+}
+.pf-card img{
+  width:100%;height:100%;object-fit:cover;object-position:center top;
+  transition:transform 1.2s cubic-bezier(.2,.8,.2,1),filter .4s;display:block;
+}
+.pf-card:hover{box-shadow:0 18px 36px rgba(0,0,0,.2);transform:translateY(-3px)}
+.pf-card:hover img{transform:scale(1.04)}
+
+/* 슬라이더 좌우 버튼 */
+.pf-nav-btn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:48px;height:48px;border-radius:50%;
+  background:rgba(255,255,255,.95);border:1px solid rgba(0,0,0,.08);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;z-index:5;
+  box-shadow:0 6px 18px rgba(0,0,0,.14);
+  color:var(--ink);
+  transition:background .25s,transform .25s,opacity .25s;
+}
+.pf-nav-btn:hover{background:#fff;transform:translateY(-50%) scale(1.06)}
+.pf-nav-btn svg{width:18px;height:18px}
+.pf-nav-btn.prev{left:-10px}
+.pf-nav-btn.next{right:-10px}
+.pf-nav-btn[disabled]{opacity:0;pointer-events:none}
+
+/* CTA */
+.pf-cta{padding:120px 32px 100px;text-align:center;background:#fafafa;margin-top:60px}
+.pf-cta h2{font-size:38px;font-weight:800;letter-spacing:-.7px;line-height:1.25;margin-bottom:18px;color:var(--ink)}
+.pf-cta p{color:#666;font-size:15px;margin-bottom:40px;line-height:1.85}
+
+/* RESPONSIVE */
+@media (max-width:1024px){
+  .pf-hero-txt h1{font-size:64px}
+}
+@media (max-width:768px){
+  .pf-hero{height:64vh;min-height:420px}
+  .pf-hero-overlay{background:linear-gradient(180deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,.4) 60%,rgba(0,0,0,.7) 100%)}
+  .pf-hero-txt{left:50%;right:auto;transform:translate(-50%,-50%);text-align:center;padding:0 20px;max-width:none;width:100%}
+  .pf-hero-eyebrow{margin-bottom:18px;font-size:12px;letter-spacing:4px}
+  .pf-hero-txt h1{font-size:54px;margin-bottom:18px}
+  .pf-hero-txt p{font-size:14px;margin:0 auto}
+  .pf-intro{padding:64px 18px 36px}
+  .pf-intro h2{font-size:22px;line-height:1.5}
+  .pf-intro p{font-size:13.5px}
+  .pf-cat{padding:40px 18px}
+  .pf-cat-head{margin-bottom:24px;align-items:flex-start;flex-direction:column;gap:0}
+  .pf-cat-head h3{font-size:22px}
+  .pf-cat-head .meta{display:none}
+  .pf-slider{gap:12px;padding:4px 4px 20px}
+  .pf-card{flex:0 0 78%;width:78%}
+  .pf-nav-btn{display:none}
+  .pf-cta{padding:60px 20px 70px;margin-top:30px}
+  .pf-cta h2{font-size:22px;line-height:1.5}
+  .pf-cta p{font-size:13.5px;margin-bottom:28px}
+}
+@media (max-width:480px){
+  .pf-hero-txt h1{font-size:44px;letter-spacing:-.6px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  </defs>
+</svg>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo"><img src="logo2.png" alt="VL VALUE LIGHT"></a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-menu">
+    <a href="about2.html">ABOUT</a>
+    <a href="service.html">SERVICE</a>
+    <a href="portfolio.html" class="current">PORTFOLIO</a>
+    <a href="lecture.html">LECTURE</a>
+    <a href="contact.html">CONTACT</a>
+  </div>
+</nav>
+<div class="nav-backdrop"></div>
+
+<!-- HERO (pm-1 풀와이드 + 좌측 타이틀) -->
+<section class="pf-hero">
+  <img class="pf-hero-img" src="pm-1.jpg" alt="">
+  <div class="pf-hero-overlay"></div>
+  <div class="pf-hero-txt">
+    <span class="pf-hero-eyebrow">OUR PORTFOLIO</span>
+    <h1>Portfolio</h1>
+    <p>다양한 경험과 전문성으로 쌓아온<br>VL VALUE LIGHT의 컨설팅 기록을 만나보세요.</p>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="pf-intro reveal">
+  <span class="pf-intro-eyebrow">SINCE 15 YEARS</span>
+  <h2>2,000+ 고객의 이미지를 디자인했습니다</h2>
+  <p>퍼스널컬러 컨설팅, 1:1 이미지 진단, 기업·학교 출강, 쇼핑 동행까지<br>한 분 한 분의 가치를 담아온 현장의 기록입니다.</p>
+</section>
+
+<!-- CATEGORY 01 — 퍼스널컬러 컨설팅 -->
+<section class="pf-cat reveal">
+  <div class="pf-cat-head">
+    <div>
+      <span class="lbl">Category 01</span>
+      <h3>퍼스널컬러 컨설팅</h3>
+    </div>
+    <span class="meta">16계절 · 8타입 진단</span>
+  </div>
+  <div class="pf-slider-wrap">
+    <button class="pf-nav-btn prev" aria-label="Prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <button class="pf-nav-btn next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    <div class="pf-slider">
+      <div class="pf-card"><img src="pc1.jpg" alt="퍼스널컬러 01"></div>
+      <div class="pf-card"><img src="pc2.jpg" alt="퍼스널컬러 02"></div>
+      <div class="pf-card"><img src="pc3.jpg" alt="퍼스널컬러 03"></div>
+      <div class="pf-card"><img src="pc5.jpg" alt="퍼스널컬러 04"></div>
+      <div class="pf-card"><img src="pc6.jpg" alt="퍼스널컬러 06"></div>
+      <div class="pf-card"><img src="pc7.jpg" alt="퍼스널컬러 07"></div>
+      <div class="pf-card"><img src="pc8.jpg" alt="퍼스널컬러 08"></div>
+      <div class="pf-card"><img src="pc9.jpg" alt="퍼스널컬러 09"></div>
+      <div class="pf-card"><img src="pc10.jpg" alt="퍼스널컬러 10"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY 02 — K-Beauty -->
+<section class="pf-cat reveal">
+  <div class="pf-cat-head">
+    <div>
+      <span class="lbl">Category 02</span>
+      <h3>K-Beauty</h3>
+    </div>
+    <span class="meta">외국인 맞춤 K-Beauty 체험</span>
+  </div>
+  <div class="pf-slider-wrap">
+    <button class="pf-nav-btn prev" aria-label="Prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <button class="pf-nav-btn next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    <div class="pf-slider">
+      <div class="pf-card"><img src="kb1.jpg" alt="K-Beauty 01"></div>
+      <div class="pf-card"><img src="kb2.jpg" alt="K-Beauty 02"></div>
+      <div class="pf-card"><img src="kb3.jpg" alt="K-Beauty 03"></div>
+      <div class="pf-card"><img src="kb4.jpg" alt="K-Beauty 04"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY 03 — 기업·기관 강의 -->
+<section class="pf-cat reveal">
+  <div class="pf-cat-head">
+    <div>
+      <span class="lbl">Category 03</span>
+      <h3>기업·기관 강의</h3>
+    </div>
+    <span class="meta">100+ 출강 진행</span>
+  </div>
+  <div class="pf-slider-wrap">
+    <button class="pf-nav-btn prev" aria-label="Prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <button class="pf-nav-btn next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    <div class="pf-slider">
+      <div class="pf-card"><img src="lc1.jpg" alt="기업 강의 01"></div>
+      <div class="pf-card"><img src="lc2.jpg" alt="기업 강의 02"></div>
+      <div class="pf-card"><img src="lc3.jpg" alt="기업 강의 03"></div>
+      <div class="pf-card"><img src="lc4.jpg" alt="기업 강의 04"></div>
+      <div class="pf-card"><img src="lc5.jpg" alt="기업 강의 05"></div>
+      <div class="pf-card"><img src="lc6.jpg" alt="기업 강의 06"></div>
+      <div class="pf-card"><img src="lc7.jpg" alt="기업 강의 07"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY 04 — 쇼핑 동행 & 스타일링 -->
+<section class="pf-cat reveal">
+  <div class="pf-cat-head">
+    <div>
+      <span class="lbl">Category 04</span>
+      <h3>쇼핑동행 · 스타일링</h3>
+    </div>
+    <span class="meta">실전 옷장 컨설팅</span>
+  </div>
+  <div class="pf-slider-wrap">
+    <button class="pf-nav-btn prev" aria-label="Prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <button class="pf-nav-btn next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    <div class="pf-slider">
+      <div class="pf-card"><img src="sh1.jpg" alt="쇼핑 동행 01"></div>
+      <div class="pf-card"><img src="sh2.jpg" alt="쇼핑 동행 02"></div>
+      <div class="pf-card"><img src="sh3.jpg" alt="쇼핑 동행 03"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="pf-cta reveal">
+  <h2>나만의 시그니처 이미지를 만들 시간입니다</h2>
+  <p>VL VALUE LIGHT에서 가장 빛나는 당신만의 이미지를 발견하세요.</p>
+  <a href="contact.html" class="btn-solid">예약하기 <span class="ico"><svg><use href="#i-arrow"/></svg></span></a>
+</section>
+
+<footer class="foot">
+  <div class="contact-grid">
+    <div class="contact-left">
+      <span class="tag">Contact</span>
+      <h3>협업 및 강의 문의</h3>
+      <p>기업 강의, 컨설팅, 협업 제안 등<br>언제든지 문의주세요.</p>
+      <a href="mailto:vl.director00@gmail.com" class="btn-inquire">문의하기</a>
+    </div>
+    <div class="contact-info">
+      <a href="tel:01054901146" class="ci">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-3 2c1 2 3 4 5 5l2-3 5 2v4c0 1-1 2-2 2-9 0-15-6-15-15 0-1 1-2 2-2z"/></svg></span>
+        <small>Phone</small>
+        <span class="v">010-5490-1146</span>
+      </a>
+      <a href="mailto:vl.director00@gmail.com" class="ci">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 7 9-7"/></svg></span>
+        <small>Mail</small>
+        <span class="v">vl.director00<br>@gmail.com</span>
+      </a>
+      <a href="https://www.instagram.com/value_light_" target="_blank" rel="noopener" class="ci">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>
+        <small>Instagram</small>
+        <span class="v">@value_light_</span>
+      </a>
+      <a href="https://map.naver.com/p/entry/place/1079886156" target="_blank" rel="noopener" class="ci">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4l4 7V5h4v14h-4l-4-7v7H6z"/></svg></span>
+        <small>Reservation</small>
+        <span class="v">네이버 예약</span>
+      </a>
+    </div>
+    <div class="contact-right">
+      <img class="mark-img" src="vl-symbol.png" alt="VL Symbol">
+      <span class="nm">VL VALUE LIGHT</span>
+      <span class="desc">IMAGE CONSULTING</span>
+    </div>
+  </div>
+</footer>
+<div class="foot-copy">© 2026 VL · VALUE LIGHT IMAGE CONSULTING. All Rights Reserved.</div>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// 포트폴리오 슬라이더 prev/next + 끝 도달 시 버튼 disable
+document.querySelectorAll('.pf-slider-wrap').forEach(function(wrap){
+  var slider = wrap.querySelector('.pf-slider');
+  var prev = wrap.querySelector('.pf-nav-btn.prev');
+  var next = wrap.querySelector('.pf-nav-btn.next');
+  if(!slider || !prev || !next) return;
+  function step(){
+    var card = slider.querySelector('.pf-card');
+    if(!card) return 380;
+    var gap = parseFloat(getComputedStyle(slider).gap) || 18;
+    return card.offsetWidth + gap;
+  }
+  function update(){
+    var maxScroll = slider.scrollWidth - slider.clientWidth;
+    prev.toggleAttribute('disabled', slider.scrollLeft <= 2);
+    next.toggleAttribute('disabled', slider.scrollLeft >= maxScroll - 2);
+  }
+  prev.addEventListener('click', function(){ slider.scrollBy({left:-step(), behavior:'smooth'}); });
+  next.addEventListener('click', function(){ slider.scrollBy({left:step(), behavior:'smooth'}); });
+  slider.addEventListener('scroll', update, {passive:true});
+  window.addEventListener('resize', update);
+  update();
+});
+(function(){var n=document.getElementById("nav");if(!n)return;var t=n.querySelector(".nav-toggle");var b=document.querySelector(".nav-backdrop");function c(){n.classList.remove("open");document.body.style.overflow=""}if(t){t.addEventListener("click",function(){var o=n.classList.toggle("open");document.body.style.overflow=o?"hidden":"";t.setAttribute("aria-expanded",o)})}if(b){b.addEventListener("click",c)}n.querySelectorAll(".nav-menu a").forEach(function(a){a.addEventListener("click",c)});})();
+</script>
+</body>
+</html>

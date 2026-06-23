@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SERVICE | VL VALUE LIGHT</title>
+<meta name="description" content="인천 송도 1:1 프라이빗 토탈 컨설팅 — 얼굴타입·골격·퍼스널컬러 통합 진단">
+<meta property="og:type" content="website">
+<meta property="og:title" content="브이엘퍼스널컬러 · 프리미엄 토탈 이미지 컨설팅">
+<meta property="og:description" content="인천 송도 1:1 프라이빗 토탈 컨설팅 — 얼굴타입·골격·퍼스널컬러 통합 진단">
+<meta property="og:image" content="https://vdirectors00-blip.github.io/vl2/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://vdirectors00-blip.github.io/vl2/og-image.jpg">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* SERVICE HERO (풀와이드 + 좌측 텍스트 오버레이) */
+.svc-hero{position:relative;width:100%;height:82vh;min-height:560px;max-height:820px;overflow:hidden;background:#fafafa}
+.svc-hero img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.svc-hero-txt{
+  position:absolute;left:10%;top:50%;transform:translateY(-50%);
+  max-width:480px;z-index:5;
+}
+.svc-eyebrow{font-size:14px;letter-spacing:5px;color:#888;font-weight:600;text-transform:uppercase;margin-bottom:32px;display:block}
+.svc-hero-txt h2{font-size:44px;font-weight:800;letter-spacing:-.8px;line-height:1.3;color:#1a1a1a;margin-bottom:28px}
+.svc-hero-txt p{font-size:16px;color:#555;line-height:1.85;letter-spacing:.1px}
+
+.intro-band{text-align:center;padding:96px 32px 48px;max-width:900px;margin:0 auto}
+.intro-band h2{font-size:42px;font-weight:800;letter-spacing:-1px;line-height:1.25;margin-bottom:18px}
+.intro-band p{color:var(--mute);font-size:15px;line-height:1.85}
+
+.prog-list{max-width:1280px;margin:0 auto;padding:0 32px 80px}
+.prog-row{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center;padding:64px 0;border-top:1px solid var(--line)}
+.prog-row:nth-child(even){grid-template-columns:1fr 1.1fr}
+.prog-row:nth-child(even) .pr-img{order:2}
+.prog-row:nth-child(even) .pr-txt{order:1}
+.pr-img{aspect-ratio:5/4;overflow:hidden;background:#fafafa}
+.pr-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s cubic-bezier(.2,.8,.2,1)}
+.pr-img.split{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:#fff}
+.prog-row:hover .pr-img img{opacity:.92}
+.pr-num{font-size:13px;letter-spacing:4px;color:var(--mute);font-weight:700;margin-bottom:14px;display:block}
+.pr-txt h3{font-size:38px;font-weight:800;letter-spacing:-.6px;line-height:1.2;margin-bottom:18px}
+.pr-txt h3 small{display:block;font-size:13px;color:var(--mute);letter-spacing:2px;margin-top:8px;font-weight:600}
+.pr-txt p.lede{font-size:15px;color:#333;line-height:1.9;margin-bottom:22px;max-width:520px}
+.pr-feat{list-style:none;display:grid;gap:8px;margin-bottom:28px}
+.pr-feat li{font-size:14px;color:#333;padding-left:20px;position:relative}
+.pr-feat li::before{content:'';position:absolute;left:0;top:11px;width:10px;height:1px;background:var(--ink)}
+.pr-meta{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:14px 0;border-top:1px solid var(--line);max-width:480px;margin-bottom:24px}
+.pr-edu-list{list-style:none;display:grid;gap:10px;margin:8px 0 28px;max-width:520px}
+.pr-edu-list li{display:flex;align-items:center;gap:14px;padding:14px 18px;background:#fafafa;border-radius:999px;transition:background .3s}
+.pr-edu-list li:hover{background:rgba(196,164,98,.1)}
+.edu-ico{width:36px;height:36px;border-radius:50%;background:rgba(196,164,98,.16);display:flex;align-items:center;justify-content:center;color:var(--gold,#a48948);flex:0 0 auto}
+.edu-ico svg{width:17px;height:17px;display:block}
+.edu-text strong{display:block;font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:2px;letter-spacing:-.2px}
+.edu-text span{font-size:13px;color:var(--mute);font-weight:400;line-height:1.5}
+.pr-meta .lbl{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--mute);font-weight:700}
+.pr-meta .prc{font-size:14px;font-weight:600;letter-spacing:-.1px;color:#444}
+.pr-meta .prc small{font-size:12px;font-weight:500;margin-left:2px;color:#666}
+
+.faq{background:#fafafa;padding:100px 32px}
+.faq .wrap{max-width:980px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-item summary{padding:24px 0;font-size:17px;font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;letter-spacing:-.2px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';font-size:22px;color:var(--mute);transition:transform .3s}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item p{padding:0 0 24px;color:#444;font-size:14.5px;line-height:1.85}
+
+/* ── WEDDING SECTION (일반/데스크탑) ── */
+.wed-intro{text-align:center;padding:96px 32px 48px;max-width:900px;margin:0 auto;border-top:1px solid var(--line)}
+.wed-intro h2{font-size:42px;font-weight:800;letter-spacing:-1px;line-height:1.25;margin-bottom:18px}
+.wed-intro h2 em{font-style:normal;font-weight:800;color:var(--gold-soft,#a48948)}
+.wed-intro p{color:var(--mute);font-size:15px;line-height:1.85}
+.wed-grid{max-width:1320px;margin:0 auto;padding:0 32px 80px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.wed-card{position:relative;overflow:hidden;background:#fafafa;display:flex;flex-direction:column;transition:background .3s,box-shadow .3s}
+.wed-card:hover{background:#fff;box-shadow:0 4px 14px rgba(0,0,0,.07)}
+.wed-card .wc-img{aspect-ratio:4/5;overflow:hidden;background:#eee}
+.wed-card .wc-img img{width:100%;height:100%;object-fit:cover;transition:opacity .35s}
+.wed-card:hover .wc-img img{opacity:.92}
+.wed-card .wc-body{padding:32px 28px 36px}
+.wed-card .tag{font-size:11px;letter-spacing:3px;color:var(--mute);font-weight:700;text-transform:uppercase;margin-bottom:14px;display:block}
+.wed-card h3{font-size:26px;font-weight:800;letter-spacing:-.5px;margin-bottom:18px;line-height:1.2}
+.wed-card ul{list-style:none;display:grid;gap:8px;margin-bottom:24px}
+.wed-card ul li{font-size:14px;color:#444;padding-left:18px;position:relative}
+.wed-card ul li::before{content:'';position:absolute;left:0;top:11px;width:8px;height:1px;background:var(--ink)}
+.wed-card .price-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-top:14px;border-top:1px solid var(--line);margin-bottom:22px}
+.wed-card .price-row .l{font-size:10.5px;letter-spacing:2.5px;color:var(--mute);font-weight:700;text-transform:uppercase}
+.wed-card .price-row .p{font-size:14px;font-weight:600;color:#444;letter-spacing:-.1px}
+
+/* ── 모바일 반응형 ── */
+@media (max-width:900px){
+  .prog-row,.prog-row:nth-child(even){grid-template-columns:1fr;gap:24px;padding:40px 0}
+  .prog-row:nth-child(even) .pr-img{order:1}
+  .prog-row:nth-child(even) .pr-txt{order:2}
+  .pr-txt h3{font-size:26px}
+  .intro-band{padding:48px 16px 24px}
+  .intro-band h2{font-size:26px}
+  .svc-hero{height:auto;min-height:0;max-height:none;background:#fff}
+  .svc-hero img{height:48vh;min-height:280px;object-position:right center}
+  .svc-hero-txt{position:relative;left:auto;top:auto;transform:none;max-width:none;padding:48px 24px 60px;text-align:center;margin:0 auto}
+  .svc-eyebrow{font-size:11px;margin-bottom:18px;letter-spacing:4px}
+  .svc-hero-txt h2{font-size:24px;line-height:1.45;margin-bottom:20px}
+  .svc-hero-txt p{font-size:14px;line-height:1.85}
+  .prog-list{padding:0 16px 40px}
+  .faq{padding:60px 16px}
+  /* WEDDING 모바일 정돈 */
+  .wed-intro{padding:60px 18px 36px;text-align:center}
+  .wed-intro h2{font-size:24px;line-height:1.35;letter-spacing:-.4px;margin-bottom:14px}
+  .wed-intro p{font-size:13.5px;line-height:1.7}
+  .wed-grid{grid-template-columns:1fr !important;padding:0 18px 56px;gap:20px;max-width:420px;margin:0 auto}
+  .wed-card{background:#fafafa;text-align:left}
+  .wed-card .wc-img{aspect-ratio:4/5}
+  .wed-card .wc-body{padding:22px 20px 26px}
+  .wed-card .tag{font-size:10.5px;letter-spacing:2.5px;margin-bottom:10px;white-space:nowrap}
+  .wed-card h3{font-size:20px;margin-bottom:14px;line-height:1.3;white-space:nowrap}
+  .wed-card h3 br{display:none}
+  .wed-card ul{gap:6px;margin-bottom:18px}
+  .wed-card ul li{font-size:13px;padding-left:14px}
+  .wed-card ul li::before{top:9px;width:6px}
+  .wed-card .price-row{margin-bottom:16px;padding-top:12px}
+  .wed-card .price-row .l{font-size:9.5px}
+  .wed-card .price-row .p{font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></g></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 8h2M14 8h2M8 12h2M14 12h2M8 16h2M14 16h2"/></g></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="9" r="2.5"/><path d="M3 19v-1.5C3 15 5.2 13 8 13s5 2 5 4.5V19M14 19v-1c0-2 1.8-3.5 4-3.5s3 1.5 3 3v1.5"/></g></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><circle cx="5" cy="10" r="2.2"/><circle cx="19" cy="10" r="2.2"/><path d="M6 20v-1.5C6 16 8.7 14 12 14s6 2 6 4.5V20M1 20v-1c0-2 1.8-3.5 4-3.5M19 15.5c2.2 0 4 1.5 4 3.5v1"/></g></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h3l2-3h8l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="4"/></g></symbol>
+  </defs>
+</svg>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo"><img src="logo2.png" alt="VL VALUE LIGHT"></a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-menu">
+    <a href="about.html">ABOUT</a>
+    <a href="service.html" class="current">SERVICE</a>
+    <a href="portfolio.html">PORTFOLIO</a>
+    <a href="lecture.html">LECTURE</a>
+    <a href="contact.html">CONTACT</a>
+  </div>
+</nav>
+<div class="nav-backdrop"></div>
+
+<!-- HERO VISUAL (sm-1 풀와이드 + 좌측 텍스트 오버레이) -->
+<section class="svc-hero reveal">
+  <img src="sm-1.jpg" alt="VL Service">
+  <div class="svc-hero-txt">
+    <span class="svc-eyebrow">TOTAL IMAGE CONSULTING</span>
+    <h2>1:1 맞춤 컨설팅,<br>실전 옷장에 바로 적용</h2>
+    <p>얼굴타입 · 골격 · 퍼스널컬러를 통합한 토탈 진단.<br>진단으로 끝나지 않는 실전 스타일링까지.</p>
+  </div>
+</section>
+
+<div class="prog-list">
+
+  <div class="prog-row reveal">
+    <div class="pr-img"><img src="prog-total.jpg" alt="프리미엄 토탈 이미지 분석"></div>
+    <div class="pr-txt">
+      <span class="pr-num">— 01</span>
+      <h3>프리미엄 토탈 이미지 분석<small>BEST · 가장 인기 있는 코스</small></h3>
+      <p class="lede">얼굴타입 · 골격 · 퍼스널컬러를 한 번에 통합 분석하는 시그니처 프로그램.</p>
+      <ul class="pr-feat">
+        <li>약 150분 · 프라이빗 1:1</li>
+        <li>16계절 드레이핑 + ICPA 얼굴형 진단</li>
+        <li>골격 진단 · 컬러 매칭 가이드</li>
+        <li>PDF 진단서 + 팔레트북 제공</li>
+      </ul>
+      <div class="pr-meta"><span class="lbl">Price</span><span class="prc">300,000<small>원</small></span></div>
+      <a href="contact.html" class="btn-line">예약하기 <span class="ico"><svg><use href="#i-arrow"/></svg></span></a>
+    </div>
+  </div>
+
+  <div class="prog-row reveal">
+    <div class="pr-img"><img src="prog-vip.jpg" alt="VIP 토탈 이미지 컨설팅"></div>
+    <div class="pr-txt">
+      <span class="pr-num">— 02</span>
+      <h3>VIP 토탈 이미지 컨설팅 (실전 2회)<small>VIP · 가장 깊이 있는 코스</small></h3>
+      <p class="lede">분석에서 끝나지 않는 유일한 토탈 컨설팅. 실전 코디까지 2회 세션으로 완성.</p>
+      <ul class="pr-feat">
+        <li>토탈 진단 + 실전 스타일링 2회</li>
+        <li>옷장 코디 · 쇼핑 가이드</li>
+        <li>1:1 맞춤 코디북 제공</li>
+        <li>3개월 카카오톡 Q&amp;A 지원</li>
+      </ul>
+      <div class="pr-meta"><span class="lbl">Price</span><span class="prc">550,000<small>원</small></span></div>
+      <a href="contact.html" class="btn-line">예약하기 <span class="ico"><svg><use href="#i-arrow"/></svg></span></a>
+    </div>
+  </div>
+
+  <div class="prog-row reveal">
+    <div class="pr-img"><img src="s-p.jfif" alt="프리미엄 퍼스널컬러 진단"></div>
+    <div class="pr-txt">
+      <span class="pr-num">— 03</span>
+      <h3>프리미엄 퍼스널컬러 진단<small>1:1 / 2:1 선택 가능</small></h3>
+      <p class="lede">사계절 · 16타입 드레이핑을 통한 정밀 퍼스널컬러 진단.</p>
+      <ul class="pr-feat">
+        <li>약 120분 · 16계절 드레이핑</li>
+        <li>베스트 컬러 팔레트 진단</li>
+        <li>메이크업·헤어 컬러 가이드</li>
+        <li>PDF 진단서 제공</li>
+      </ul>
+      <div class="pr-meta"><span class="lbl">1:1 / 2:1</span><span class="prc">150,000<small>원 / 250,000원</small></span></div>
+      <a href="contact.html" class="btn-line">예약하기 <span class="ico"><svg><use href="#i-arrow"/></svg></span></a>
+    </div>
+  </div>
+
+  <div class="prog-row reveal">
+    <div class="pr-img"><img src="mens-ba.png" alt="남성 프리미엄 컨설팅"></div>
+    <div class="pr-txt">
+      <span class="pr-num">— 04</span>
+      <h3>남성 프리미엄 퍼스널 컬러 컨설팅<small>For Men · 유일한 남성 특화</small></h3>
+      <p class="lede">스타일링 중심의 남성 전용 프리미엄 코스. 셔츠 · 수트 · 캐주얼 실전 적용.</p>
+      <ul class="pr-feat">
+        <li>약 120분 · 프라이빗 1:1</li>
+        <li>셔츠 · 수트 · 캐주얼 컬러 매칭</li>
+        <li>PDF 진단서 + 남성 팔레트북</li>
+      </ul>
+      <div class="pr-meta"><span class="lbl">Price</span><span class="prc">130,000<small>원</small></span></div>
+      <a href="contact.html" class="btn-line">예약하기 <span class="ico"><svg><use href="#i-arrow"/></svg></span></a>
+    </div>
+  </div>
+
+  <div class="prog-row reveal">
+    <div class="pr-img"><img src="interview.jpg" alt="상황별 토탈 컨설팅"></div>
+    <div class="pr-txt">
+      <span class="pr-num">— 05</span>
+      <h3>상황별 토탈 컨설팅<small>Situation · 상황별 맞춤</small></h3>
+      <p class="lede">중요한 순간을 위한 상황별 맞춤 토탈 컨설팅.</p>
+      <ul class="pr-feat">
+        <li>면접 컨설팅</li>
+        <li>프로필 촬영 컨설팅</li>
+        <li>소개팅 컨설팅</li>
+      </ul>
+      <div class="pr-meta"><span class="lbl">Price</span><span class="prc">상담 후 안내</span></div>
+      <a href="contact.html" class="btn-line">상담 신청 <span class="ico"><svg><use href="#i-arrow"/></svg></span></a>
+    </div>
+  </div>
+
+  <div class="prog-row reveal">
+    <div class="pr-img split">
+      <img src="e1.jpg" alt="동행쇼핑">
+      <img src="e2.jpg" alt="대리쇼핑">
+    </div>
+    <div class="pr-txt">
+      <span class="pr-num">— 06</span>
+      <h3>동행쇼핑 / 대리쇼핑<small>Shopping · 실전형 컨설팅</small></h3>
+      <p class="lede">개인의 분위기와 강점을 분석해,<br>동행을 통한 실전형 컨설팅.</p>
+      <ul class="pr-feat">
+        <li>동행쇼핑</li>
+        <li>대리쇼핑</li>
+      </ul>
+      <div class="pr-meta"><span class="lbl">Price</span><span class="prc">상담 후 안내</span></div>
+      <a href="contact.html" class="btn-line">상담 신청 <span class="ico"><svg><use href="#i-arrow"/></svg></span></a>
+    </div>
+  </div>
+
+  <div class="prog-row reveal">
+    <div class="pr-img"><img src="lectures.jpg" alt="강의 · 워크숍"></div>
+    <div class="pr-txt">
+      <span class="pr-num">— 07</span>
+      <h3>5가지 교육 프로그램<small>Lectures &amp; Workshops · 전문성 있는 강의</small></h3>
+      <p class="lede">학교 · 기업 · 협업까지, 다양한 현장에서<br>전문성 있는 이미지 메이킹 교육을 진행합니다.</p>
+      <ul class="pr-edu-list">
+        <li>
+          <span class="edu-ico"><svg><use href="#i-cap"/></svg></span>
+          <div class="edu-text"><strong>학교 및 대학교 특강</strong><span>학생들을 위한 이미지 메이킹 및 커리어 특강</span></div>
+        </li>
+        <li>
+          <span class="edu-ico"><svg><use href="#i-building"/></svg></span>
+          <div class="edu-text"><strong>기업 이미지 메이킹 교육</strong><span>직장인을 위한 전문 이미지 교육 프로그램</span></div>
+        </li>
+        <li>
+          <span class="edu-ico"><svg><use href="#i-people"/></svg></span>
+          <div class="edu-text"><strong>교직원 및 학부모 교육</strong><span>교육 현장을 위한 이미지 교육</span></div>
+        </li>
+        <li>
+          <span class="edu-ico"><svg><use href="#i-users"/></svg></span>
+          <div class="edu-text"><strong>퍼스널컬러 체험 프로그램</strong><span>체험형 컬러 진단 워크숍</span></div>
+        </li>
+        <li>
+          <span class="edu-ico"><svg><use href="#i-camera"/></svg></span>
+          <div class="edu-text"><strong>뷰티 · 헤어샵 협업 프로그램</strong><span>전문가를 위한 협업 교육</span></div>
+        </li>
+      </ul>
+      <div class="pr-meta"><span class="lbl">출강 · 단체 교육</span><span class="prc">상담 후 안내</span></div>
+      <a href="contact.html" class="btn-line">출강 문의 <span class="ico"><svg><use href="#i-arrow"/></svg></span></a>
+    </div>
+  </div>
+
+</div>
+
+<!-- WEDDING SECTION -->
+<section class="wed-intro reveal">
+  <span class="section-eyebrow">VL Wedding</span>
+  <h2>당신만의 분위기로 <em>완성</em>되는<br>웨딩 이미지 컨설팅</h2>
+  <p>예복 · 한복 · 본식 · 스튜디오 촬영까지.<br>신부와 신랑 모두를 위한 토탈 컨설팅으로,<br>인생에서 단 하루뿐인 그 순간을 가장 빛나는 모습으로 완성합니다.</p>
+</section>
+
+<section class="wed-grid">
+  <div class="wed-card reveal">
+    <div class="wc-img"><img src="wed-bride.jpg" alt="신부 웨딩 컨설팅"></div>
+    <div class="wc-body">
+      <span class="tag">For Bride</span>
+      <h3>신부<br>웨딩 컨설팅</h3>
+      <ul>
+        <li>웨딩드레스 · 한복 컬러 매칭</li>
+        <li>본식 · 스튜디오 메이크업 톤 가이드</li>
+        <li>예식 후 일상복 컨설팅 포함</li>
+        <li>약 150분 · 프라이빗 1:1</li>
+      </ul>
+      <div class="price-row"><span class="l">Price</span><span class="p">250,000원</span></div>
+    </div>
+  </div>
+  <div class="wed-card reveal">
+    <div class="wc-img"><img src="wed-groom.png" alt="신랑 웨딩 컨설팅"></div>
+    <div class="wc-body">
+      <span class="tag">For Groom</span>
+      <h3>신랑<br>웨딩 컨설팅</h3>
+      <ul>
+        <li>턱시도 · 수트 컬러 매칭</li>
+        <li>한복 · 캐주얼 예식 가이드</li>
+        <li>헤어 · 안경 · 액세서리 추천</li>
+        <li>약 120분 · 프라이빗 1:1</li>
+      </ul>
+      <div class="price-row"><span class="l">Price</span><span class="p">200,000원</span></div>
+    </div>
+  </div>
+  <div class="wed-card reveal">
+    <div class="wc-img"><img src="wed-couple.jpg" alt="커플 웨딩 컨설팅"></div>
+    <div class="wc-body">
+      <span class="tag">For Couple · BEST</span>
+      <h3>커플<br>웨딩 컨설팅</h3>
+      <ul>
+        <li>신부 + 신랑 동시 진행</li>
+        <li>두 사람 조화로운 톤 매칭</li>
+        <li>예복부터 본식까지 풀 가이드</li>
+        <li>약 180분 · 프라이빗 1:1</li>
+      </ul>
+      <div class="price-row"><span class="l">Price</span><span class="p">400,000원</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq reveal">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:48px">
+      <span class="section-eyebrow">FAQ</span>
+      <h2>자주 묻는 질문</h2>
+    </div>
+    <details class="faq-item"><summary>진단은 얼마나 소요되나요?</summary><p>프로그램별로 다르며, 프리미엄 퍼스널컬러 진단은 약 120분, 프리미엄 토탈 이미지 분석은 약 150분 소요됩니다. VIP 토탈 컨설팅은 실전 세션 2회로 진행됩니다.</p></details>
+    <details class="faq-item"><summary>예약은 어떻게 하나요?</summary><p>홈페이지의 예약 페이지를 통해 원하시는 일정과 프로그램을 선택해 신청해주세요. 전화(0507-1369-8334) 또는 카카오톡으로도 가능합니다.</p></details>
+    <details class="faq-item"><summary>주차 가능한가요?</summary><p>송도AT센터 내 유료 주차장 이용 가능합니다. 사전 안내 후 발렛 서비스 연결도 도와드립니다.</p></details>
+    <details class="faq-item"><summary>여러 명이 함께 진단받을 수 있나요?</summary><p>퍼스널컬러 진단은 2:1 옵션이 제공됩니다. 그 외 프로그램은 1:1 프라이빗 형태로 진행됩니다.</p></details>
+    <details class="faq-item"><summary>출장 강의도 가능한가요?</summary><p>기업·단체 출장 강의가 가능합니다. 자세한 일정과 비용은 별도 상담을 통해 안내드립니다.</p></details>
+  </div>
+</section>
+
+<section class="section" style="text-align:center;padding:100px 32px">
+  <h2 style="font-size:42px;font-weight:800;letter-spacing:-.8px;line-height:1.25;margin-bottom:18px">유일한 토탈 이미지 컨설팅,<br>지금 시작하세요.</h2>
+  <p style="color:var(--mute);font-size:15px;margin-bottom:40px;line-height:1.7">1:1 프라이빗 살롱에서<br>당신만의 시그니처 이미지를 완성합니다.</p>
+  <a href="contact.html" class="btn-solid">예약하기 <span class="ico"><svg><use href="#i-arrow"/></svg></span></a>
+</section>
+
+<footer class="foot">
+  <div class="contact-grid">
+    <div class="contact-left">
+      <span class="tag">Contact</span>
+      <h3>협업 및 강의 문의</h3>
+      <p>기업 강의, 컨설팅, 협업 제안 등<br>언제든지 문의주세요.</p>
+      <a href="mailto:vl.director00@gmail.com" class="btn-inquire">문의하기</a>
+    </div>
+    <div class="contact-info">
+      <a href="tel:01054901146" class="ci">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-3 2c1 2 3 4 5 5l2-3 5 2v4c0 1-1 2-2 2-9 0-15-6-15-15 0-1 1-2 2-2z"/></svg></span>
+        <small>Phone</small>
+        <span class="v">010-5490-1146</span>
+      </a>
+      <a href="mailto:vl.director00@gmail.com" class="ci">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 7 9-7"/></svg></span>
+        <small>Mail</small>
+        <span class="v">vl.director00<br>@gmail.com</span>
+      </a>
+      <a href="https://www.instagram.com/value_light_" target="_blank" rel="noopener" class="ci">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>
+        <small>Instagram</small>
+        <span class="v">@value_light_</span>
+      </a>
+      <a href="https://map.naver.com/p/entry/place/1079886156" target="_blank" rel="noopener" class="ci">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4l4 7V5h4v14h-4l-4-7v7H6z"/></svg></span>
+        <small>Reservation</small>
+        <span class="v">네이버 예약</span>
+      </a>
+    </div>
+    <div class="contact-right">
+      <img class="mark-img" src="vl-symbol.png" alt="VL Symbol">
+      <span class="nm">VL VALUE LIGHT</span>
+      <span class="desc">IMAGE CONSULTING</span>
+    </div>
+  </div>
+</footer>
+<div class="foot-copy">© 2026 VL · VALUE LIGHT IMAGE CONSULTING. All Rights Reserved.</div>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.18,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40),{passive:true});
+(function(){var n=document.getElementById("nav");if(!n)return;var t=n.querySelector(".nav-toggle");var b=document.querySelector(".nav-backdrop");function c(){n.classList.remove("open");document.body.style.overflow=""}if(t){t.addEventListener("click",function(){var o=n.classList.toggle("open");document.body.style.overflow=o?"hidden":"";t.setAttribute("aria-expanded",o)})}if(b){b.addEventListener("click",c)}n.querySelectorAll(".nav-menu a").forEach(function(a){a.addEventListener("click",c)});})();
+</script>
+</body>
+</html>

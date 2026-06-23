@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABOUT | 브이엘퍼스널컬러</title>
+<meta name="description" content="인천 송도 1:1 프라이빗 토탈 컨설팅 — 얼굴타입·골격·퍼스널컬러 통합 진단">
+<meta property="og:type" content="website">
+<meta property="og:title" content="브이엘퍼스널컬러 · 프리미엄 토탈 이미지 컨설팅">
+<meta property="og:description" content="인천 송도 1:1 프라이빗 토탈 컨설팅 — 얼굴타입·골격·퍼스널컬러 통합 진단">
+<meta property="og:image" content="https://vdirectors00-blip.github.io/vl2/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://vdirectors00-blip.github.io/vl2/og-image.jpg">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="stylesheet" href="shared.css">
+<style>
+.about-intro{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:center;padding:120px 32px;max-width:1280px;margin:0 auto}
+.about-intro .brand-visual{position:relative}
+.about-intro img{aspect-ratio:4/5;object-fit:cover;width:100%;display:block}
+.brand-circle{
+  position:absolute;top:-50px;left:-50px;z-index:5;
+  width:150px;height:150px;
+  animation:brandSpin 18s linear infinite;
+  pointer-events:none;
+}
+.brand-circle svg{width:100%;height:100%;display:block}
+.brand-circle text{
+  fill:#c4a462;
+  font-family:'Pretendard Variable','Pretendard',sans-serif;
+  font-size:14px;letter-spacing:3px;font-weight:600;text-transform:uppercase;
+}
+@keyframes brandSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.about-intro .txt h2{font-size:42px;font-weight:500;letter-spacing:-.8px;line-height:1.35;margin-bottom:32px;color:var(--ink)}
+.about-intro .txt h2 strong{font-weight:800;color:#1a1a1a}
+.about-intro .txt p{font-size:15.5px;line-height:1.95;color:#333;margin-bottom:18px}
+
+.values{background:#0a0a0a;color:#fff;padding:120px 32px}
+.values .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+.value-card{padding:48px 32px;border:1px solid rgba(255,255,255,.16);transition:background .4s,border-color .4s}
+.value-card:hover{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.4)}
+.value-card .num{font-size:13px;letter-spacing:4px;color:var(--point);font-weight:700;margin-bottom:24px;display:block}
+.value-card h3{font-size:26px;font-weight:800;letter-spacing:-.5px;line-height:1.3;margin-bottom:16px}
+.value-card p{font-size:14px;color:rgba(255,255,255,.7);line-height:1.85}
+
+.process{padding:120px 32px;max-width:1280px;margin:0 auto}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:20px}
+.process-step{position:relative;padding-top:36px;border-top:1px solid var(--ink)}
+.process-step .step-num{position:absolute;top:-14px;background:#fff;padding:0 12px 0 0;font-size:12px;letter-spacing:3px;color:var(--ink);font-weight:700}
+.process-step h4{font-size:22px;font-weight:800;letter-spacing:-.3px;margin-bottom:14px}
+.process-step p{font-size:14px;color:var(--mute);line-height:1.8}
+
+.founder{background:#fafafa;padding:120px 32px}
+.founder .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center;max-width:1200px;margin:0 auto}
+.founder img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.founder h2{font-size:48px;font-weight:800;letter-spacing:-.8px;line-height:1.15;margin-bottom:10px}
+.founder-role{font-size:13px;letter-spacing:2px;color:var(--mute);font-weight:600;text-transform:uppercase;margin-bottom:28px;display:block}
+.founder p.lede{font-size:15.5px;color:#333;line-height:1.95;margin-bottom:36px}
+.founder-list{list-style:none;display:grid;gap:0;border-top:1px solid var(--line)}
+.founder-list li{display:flex;align-items:center;gap:18px;padding:18px 4px;border-bottom:1px solid var(--line);font-size:15px;color:var(--ink);font-weight:500;letter-spacing:-.2px}
+.founder-list .ico-c{width:36px;height:36px;border-radius:50%;background:rgba(64,39,89,.08);display:flex;align-items:center;justify-content:center;flex:0 0 auto;color:var(--primary)}
+.founder-list .ico-c svg{width:17px;height:17px;display:block}
+
+/* DIRECTOR section */
+.director{background:#fff;padding:120px 32px;border-top:1px solid var(--line)}
+.director .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:80px;align-items:start;max-width:1280px;margin:0 auto}
+.director img{aspect-ratio:4/5;object-fit:cover;width:100%;position:sticky;top:120px}
+.director h2{font-size:48px;font-weight:800;letter-spacing:-.8px;line-height:1.15;margin-bottom:10px;color:var(--ink)}
+.director .founder-role{margin-bottom:24px}
+.director .lede{font-size:15.5px;color:#333;line-height:1.95;margin-bottom:36px}
+.dir-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px 48px;border-top:1px solid var(--line);padding-top:28px}
+.dir-h{font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--primary);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--line);display:inline-block}
+.dir-list{list-style:none;display:grid;gap:8px}
+.dir-list li{font-size:13.5px;color:#333;line-height:1.55;padding-left:14px;position:relative}
+.dir-list li::before{content:'';position:absolute;left:0;top:9px;width:4px;height:4px;border-radius:50%;background:var(--primary);opacity:.7}
+
+@media (max-width:900px){
+  .director{padding:64px 16px}
+  .director .wrap{grid-template-columns:1fr;gap:32px}
+  .director img{position:static;aspect-ratio:4/5;max-width:340px;margin:0 auto;order:-1}
+  .director h2{font-size:30px}
+  .dir-grid{grid-template-columns:1fr;gap:28px;padding-top:22px}
+  .dir-list li{font-size:13px}
+}
+
+@media (max-width:900px){
+  .about-intro,.founder .wrap{grid-template-columns:1fr;gap:40px;padding:80px 16px 64px}
+  .about-intro .txt h2,.founder h2{font-size:28px}
+  .about-intro .txt h2{font-size:26px;line-height:1.4}
+  .values .wrap,.process-grid{grid-template-columns:1fr;gap:24px}
+  .values,.process,.founder{padding:60px 16px}
+  .process-step h4{font-size:18px}
+  .brand-circle{width:120px;height:120px;top:-22px;left:-12px}
+  .brand-circle text{font-size:20px;letter-spacing:4px}
+}
+@media (max-width:480px){
+  .about-intro .txt h2{font-size:22px}
+  .brand-circle{width:100px;height:100px;top:-16px;left:-8px}
+  .brand-circle text{font-size:22px;letter-spacing:4px}
+}
+
+/* TEAM (디렉터 2분할) */
+.team{padding:120px 32px;max-width:1280px;margin:0 auto;background:#fff}
+.team .section-head{margin-bottom:64px}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1080px;margin:0 auto}
+.team-card{display:flex;flex-direction:column}
+.team-photo{
+  aspect-ratio:1/1;overflow:hidden;background:#f0eee8;border-radius:6px;
+  display:flex;align-items:flex-end;justify-content:center;
+  margin-bottom:28px;
+}
+.team-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.team-body{padding:0 6px}
+.team-body h3{font-size:22px;font-weight:800;letter-spacing:-.3px;margin-bottom:24px;color:var(--ink)}
+.team-body h3 small{font-size:14px;font-weight:500;color:var(--mute);margin-left:8px;letter-spacing:.5px}
+.team-list{list-style:none;display:grid;gap:10px}
+.team-list li{font-size:14.5px;color:#333;padding-left:14px;position:relative;line-height:1.6}
+.team-list li::before{content:'';position:absolute;left:0;top:11px;width:6px;height:1px;background:var(--ink)}
+
+@media (max-width:768px){
+  .team{padding:60px 18px}
+  .team .section-head{margin-bottom:40px}
+  .team-grid{grid-template-columns:1fr 1fr;gap:20px;max-width:none}
+  .team-photo{aspect-ratio:3/4;margin-bottom:16px}
+  .team-body h3{font-size:16px;margin-bottom:14px}
+  .team-body h3 small{font-size:12px;display:block;margin:4px 0 0}
+  .team-list li{font-size:12.5px;padding-left:10px}
+  .team-list{gap:6px}
+}
+@media (max-width:480px){
+  .team-grid{grid-template-columns:1fr;gap:32px;max-width:340px;margin:0 auto}
+  .team-photo{aspect-ratio:1/1}
+  .team-body h3{font-size:18px}
+  .team-body h3 small{display:inline;margin-left:8px}
+  .team-list li{font-size:14px}
+}
+
+/* HERO VISUAL — am-1 풀와이드 + 좌측 텍스트 오버레이 */
+.about-hero{position:relative;width:100%;height:82vh;min-height:560px;max-height:820px;overflow:hidden;background:#fafafa}
+.about-hero img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.about-hero-txt{
+  position:absolute;left:10%;top:50%;transform:translateY(-50%);
+  max-width:440px;z-index:5;
+}
+.about-hero-txt .ph-eyebrow{font-size:14px;letter-spacing:5px;color:#888;font-weight:600;text-transform:uppercase;margin-bottom:32px;display:block}
+.about-hero-txt h2{font-size:38px;font-weight:700;line-height:1.45;letter-spacing:-.5px;color:#1a1a1a;margin-bottom:32px}
+.about-hero-txt p{font-size:17px;color:#555;line-height:1.9;letter-spacing:.1px}
+
+/* WHAT WE DO (about) */
+.what-about{padding:120px 32px 140px;max-width:1280px;margin:0 auto;border-top:1px solid #ececec}
+.wa-head{margin-bottom:80px;text-align:center}
+.wa-eyebrow{font-size:13px;letter-spacing:5px;color:var(--gold-soft,#a48948);font-weight:700;text-transform:uppercase;margin-bottom:24px;display:block}
+.wa-head h2{font-size:38px;font-weight:700;line-height:1.4;letter-spacing:-.5px;color:var(--ink)}
+.wa-list{display:grid;grid-template-columns:repeat(3,1fr);gap:72px 64px;max-width:1100px;margin:0 auto}
+.wa-item{text-align:center}
+.wa-ico{
+  width:64px;height:64px;display:inline-flex;align-items:center;justify-content:center;
+  color:var(--gold-soft,#a48948);margin-bottom:24px;
+}
+.wa-ico svg{width:56px;height:56px;display:block}
+.wa-item h4{font-size:19px;font-weight:700;color:var(--ink);margin-bottom:12px;letter-spacing:-.3px}
+.wa-item p{font-size:15px;color:#777;line-height:1.75}
+
+@media (max-width:900px){
+  .about-hero{height:auto;min-height:0;max-height:none;background:#fff}
+  .about-hero img{height:50vh;min-height:280px;object-position:right center}
+  .about-hero-txt{position:relative;left:auto;top:auto;transform:none;max-width:none;padding:48px 24px 60px;text-align:center;margin:0 auto}
+  .about-hero-txt .ph-eyebrow{margin-bottom:18px;letter-spacing:4px}
+  .about-hero-txt h2{font-size:24px;line-height:1.5;margin-bottom:20px}
+  .about-hero-txt p{font-size:14.5px;line-height:1.85}
+  .what-about{padding:72px 18px 90px}
+  .wa-head{margin-bottom:50px}
+  .wa-head h2{font-size:24px;line-height:1.45}
+  .wa-eyebrow{font-size:11px;margin-bottom:18px}
+  .wa-list{grid-template-columns:repeat(2,1fr);gap:44px 22px}
+  .wa-ico{width:52px;height:52px;margin-bottom:18px}
+  .wa-ico svg{width:46px;height:46px}
+  .wa-item h4{font-size:15.5px}
+  .wa-item p{font-size:13px}
+}
+@media (max-width:480px){
+  .wa-list{grid-template-columns:repeat(2,1fr);gap:30px 14px}
+  .ph-txt h2{font-size:20px}
+}
+
+/* CLIENTS (주요 출강·협업 기관) */
+.clients{padding:110px 32px 130px;max-width:1180px;margin:0 auto;background:#fff}
+.cl-head{margin-bottom:48px}
+.cl-head h3{font-size:24px;font-weight:800;color:var(--ink);letter-spacing:-.4px;line-height:1.3}
+.cl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1000px}
+.cl-cell{
+  width:100%;height:170px;
+  display:flex;align-items:center;justify-content:center;
+  padding:24px 32px;
+  background:#fff;border-radius:8px;
+  box-shadow:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
+  transition:transform .35s,box-shadow .35s;
+}
+.cl-cell:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 32px rgba(0,0,0,.12),0 4px 10px rgba(0,0,0,.06);
+}
+.cl-cell img{max-width:80%;max-height:78%;width:auto;height:auto;object-fit:contain;display:block}
+
+@media (max-width:900px){
+  .clients{padding:64px 18px 80px}
+  .cl-head h3{font-size:20px;margin-bottom:28px}
+  .cl-grid{max-width:none;gap:16px}
+  .cl-cell{height:130px;padding:18px;border-radius:6px}
+  .cl-cell img{max-width:85%;max-height:80%}
+}
+@media (max-width:480px){
+  .clients{padding:48px 14px 64px}
+  .cl-head h3{font-size:18px}
+  .cl-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .cl-cell{height:110px;padding:14px}
+}
+
+/* BEFORE & AFTER */
+.ba-section{background:#ebebea;padding:90px 32px 110px}
+.ba-head{text-align:center;margin-bottom:54px}
+.ba-head .ba-small{font-size:16px;color:#444;font-weight:400;letter-spacing:-.2px;margin-bottom:10px;display:block}
+.ba-head h2{font-size:38px;font-weight:800;letter-spacing:-.8px;color:var(--ink)}
+.ba-row{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.ba-item{position:relative;overflow:hidden;background:#fff}
+.ba-img{aspect-ratio:3/4;background:#eee;overflow:hidden}
+.ba-img img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.ba-label{background:#1a1a1a;color:#fff;padding:14px;text-align:center;font-size:14px;letter-spacing:2px;font-weight:600}
+.ba-item.aft .ba-label{background:var(--gold);color:#fff}
+
+@media (max-width:768px){
+  .ba-section{padding:60px 18px 72px}
+  .ba-head{margin-bottom:36px}
+  .ba-head h2{font-size:24px}
+  .ba-head .ba-small{font-size:13px}
+  .ba-row{grid-template-columns:repeat(2,1fr);gap:8px}
+  .ba-label{font-size:12px;padding:10px;letter-spacing:1.5px}
+}
+@media (max-width:480px){
+  .ba-section{padding:48px 14px 56px}
+  .ba-head h2{font-size:20px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-cert" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="5"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></g></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></g></symbol>
+    <symbol id="i-frame" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="6" rx="1"/><path d="M6 9v3M9 9v3M12 9v4M15 9v3M18 9v3"/></g></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 0 18c1.5 0 2-1.5 1-2.5s-.5-2.5 1-2.5h2a5 5 0 0 0 5-5c0-4.4-4-8-9-8z"/><circle cx="7.5" cy="10" r="1" fill="currentColor"/><circle cx="11" cy="6.5" r="1" fill="currentColor"/><circle cx="15.5" cy="8" r="1" fill="currentColor"/></g></symbol>
+    <symbol id="i-shirt" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M8 3l4 3 4-3 5 3-2 4-3-1v11H6V9L3 10 1 6z"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8.5 21h7"/></g></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.7A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
+    <symbol id="i-face" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 10v.01M15 10v.01M8.5 15c1 .8 2.2 1.2 3.5 1.2s2.5-.4 3.5-1.2"/></g></symbol>
+  </defs>
+</svg>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo"><img src="logo2.png" alt="VL VALUE LIGHT"></a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-menu">
+    <a href="about.html" class="current">ABOUT</a>
+    <a href="service.html">SERVICE</a>
+    <a href="portfolio.html">PORTFOLIO</a>
+    <a href="lecture.html">LECTURE</a>
+    <a href="contact.html">CONTACT</a>
+  </div>
+</nav>
+<div class="nav-backdrop"></div>
+
+<!-- HERO VISUAL (am-1 풀와이드 + PHILOSOPHY 오버레이) -->
+<section class="about-hero reveal">
+  <img src="am-1.jpg" alt="VL VALUE LIGHT">
+  <div class="about-hero-txt">
+    <span class="ph-eyebrow">PHILOSOPHY</span>
+    <h2>이미지는 꾸미는 것이 아니라<br>가치를 전달하는 언어 입니다</h2>
+    <p>퍼스널컬러, 얼굴형, 골격 분석을 기반으로<br>개인의 강점과 매력을 발견하고<br>가장 설득력 있는 이미지로 연결합니다.</p>
+  </div>
+</section>
+
+<!-- WHAT WE DO (6 services) -->
+<section class="what-about reveal">
+  <div class="wa-head">
+    <span class="wa-eyebrow">OUR SERVICES</span>
+    <h2>당신의 가치를 가장 잘 보여주는<br>이미지를 디자인합니다</h2>
+  </div>
+  <div class="wa-list">
+    <div class="wa-item">
+      <span class="wa-ico"><svg viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-4.7 0-8.5 3.6-8.5 8 0 4 3 6.5 6.5 6.5.7 0 1.2-.6 1.2-1.3 0-.4-.1-.7-.3-1-.2-.3-.3-.6-.3-1 0-.8.6-1.4 1.4-1.4h2.3c2.6 0 4.7-2 4.7-4.4 0-3-3.1-5.4-7-5.4z"/><circle cx="8" cy="10.5" r=".9" fill="currentColor"/><circle cx="11" cy="7.5" r=".9" fill="currentColor"/><circle cx="15" cy="8.5" r=".9" fill="currentColor"/><circle cx="16.5" cy="12" r=".9" fill="currentColor"/></g></svg></span>
+      <h4>퍼스널컬러 컨설팅</h4>
+      <p>개인의 고유한 매력을<br>찾아주는 컬러 분석</p>
+    </div>
+    <div class="wa-item">
+      <span class="wa-ico"><svg viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="11" rx="5.2" ry="7.2"/><path d="M6.8 10.5c-.85.18-1.4.92-1.4 1.7 0 .8.55 1.55 1.4 1.75"/><path d="M17.2 10.5c.85.18 1.4.92 1.4 1.7 0 .8-.55 1.55-1.4 1.75"/><path d="M10 21h4"/></g></svg></span>
+      <h4>얼굴형 진단</h4>
+      <p>얼굴형 분석을 통한<br>이미지 밸런스 설계</p>
+    </div>
+    <div class="wa-item">
+      <span class="wa-ico"><svg viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5a1.8 1.8 0 1 0 0 3.6 1.8 1.8 0 0 0 0-3.6z"/><path d="M9.2 8c-.5.8-.9 1.8-.9 2.7v.8c0 .4.3.7.7.7h.5l-.4 8.3M14.8 8c.5.8.9 1.8.9 2.7v.8c0 .4-.3.7-.7.7h-.5l.4 8.3"/><path d="M11.5 13h1M11.5 16h1"/></g></svg></span>
+      <h4>골격(바디프레임) 진단</h4>
+      <p>체형 분석을 통한<br>스타일링 솔루션 제안</p>
+    </div>
+    <div class="wa-item">
+      <span class="wa-ico"><svg viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 8h13l-1.2 11.5a1 1 0 0 1-1 .9H7.7a1 1 0 0 1-1-.9z"/><path d="M9 8.5V6a3 3 0 0 1 6 0v2.5"/><path d="M9 12v1M15 12v1"/></g></svg></span>
+      <h4>쇼핑 동행</h4>
+      <p>체형과 이미지에 맞는<br>맞춤 쇼핑 동행</p>
+    </div>
+    <div class="wa-item">
+      <span class="wa-ico"><svg viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="11" rx="1"/><path d="M12 15.5v4.5M8.5 20.5h7"/><path d="M7 8.5h7M7 11.5h5"/></g></svg></span>
+      <h4>기업 강의</h4>
+      <p>조직의 이미지 향상을 위한<br>맞춤형 교육 프로그램</p>
+    </div>
+    <div class="wa-item">
+      <span class="wa-ico"><svg viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8M9 3l-.5 4h7L15 3M9.5 7l-1.5 11.5L12 22l4-3.5L14.5 7"/><path d="M10 9h4"/></g></svg></span>
+      <h4>취업·면접 컨설팅</h4>
+      <p>합격을 부르는<br>이미지 전략 컨설팅</p>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM (디렉터 2명 가로 분할) -->
+<section class="team reveal">
+  <div class="section-head">
+    <span class="section-eyebrow">Our Team</span>
+    <h2>VL 디렉터 소개</h2>
+  </div>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-photo"><img src="m1.jpg" alt="대표 박주해"></div>
+      <div class="team-body">
+        <h3>박주해 <small>Director</small></h3>
+        <ul class="team-list">
+          <li>패션 실무 15년</li>
+          <li>일본 얼굴형 진단 1급</li>
+          <li>일본 골격 진단 1급</li>
+          <li>퍼스널컬러 전문강사</li>
+          <li>기업·기관 강의 다수 진행</li>
+        </ul>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-photo"><img src="director.jpg" alt="소속 디렉터 진소향"></div>
+      <div class="team-body">
+        <h3>진소향 <small>Instructor</small></h3>
+        <ul class="team-list">
+          <li>퍼스널컬러 전문가</li>
+          <li>메이크업 전문가</li>
+          <li>기업 및 기관 강의</li>
+          <li>이미지 컨설팅 다수 진행</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE & AFTER -->
+<section class="ba-section reveal">
+  <div class="ba-head">
+    <span class="ba-small">Before &amp; After로 보는</span>
+    <h2>퍼스널컬러 이미지 브랜딩</h2>
+  </div>
+  <div class="ba-row">
+    <div class="ba-item bef">
+      <div class="ba-img"><img src="man-be.png" alt="남성 Before"></div>
+      <div class="ba-label">Before</div>
+    </div>
+    <div class="ba-item aft">
+      <div class="ba-img"><img src="man-aft.jpg" alt="남성 After"></div>
+      <div class="ba-label">After</div>
+    </div>
+    <div class="ba-item bef">
+      <div class="ba-img"><img src="woman-be.jpg" alt="여성 Before"></div>
+      <div class="ba-label">Before</div>
+    </div>
+    <div class="ba-item aft">
+      <div class="ba-img"><img src="woman-aft.jpg" alt="여성 After"></div>
+      <div class="ba-label">After</div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS (주요 출강·협업 기관) -->
+<section class="clients reveal">
+  <div class="cl-head">
+    <h3>주요 출강·협업 기관</h3>
+  </div>
+  <div class="cl-grid">
+    <div class="cl-cell"><img src="강서구청.png" alt="강서구청"></div>
+    <div class="cl-cell"><img src="삼성.png" alt="SAMSUNG BIOEPIS"></div>
+    <div class="cl-cell"><img src="인하대학교.jpg" alt="인하대학교"></div>
+    <div class="cl-cell"><img src="창원여고.JPG" alt="창원여자고등학교"></div>
+    <div class="cl-cell"><img src="의료원.png" alt="국립중앙의료원"></div>
+    <div class="cl-cell"><img src="명지병원.png" alt="명지병원"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="text-align:center;padding:120px 32px 100px">
+  <span class="section-eyebrow">예약하기</span>
+  <h2 style="font-size:48px;font-weight:800;letter-spacing:-1px;line-height:1.2;margin-bottom:18px">1:1 프라이빗 토탈 컨설팅</h2>
+  <p style="color:var(--mute);font-size:15.5px;margin-bottom:48px">예약을 통해 당신만의 시그니처 이미지를 만나보세요.</p>
+  <a href="contact.html" class="btn-solid">예약하기 <span class="ico"><svg><use href="#i-arrow"/></svg></span></a>
+</section>
+
+<footer class="foot">
+  <div class="contact-grid">
+    <div class="contact-left">
+      <span class="tag">Contact</span>
+      <h3>협업 및 강의 문의</h3>
+      <p>기업 강의, 컨설팅, 협업 제안 등<br>언제든지 문의주세요.</p>
+      <a href="mailto:vl.director00@gmail.com" class="btn-inquire">문의하기</a>
+    </div>
+    <div class="contact-info">
+      <a href="tel:01054901146" class="ci">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-3 2c1 2 3 4 5 5l2-3 5 2v4c0 1-1 2-2 2-9 0-15-6-15-15 0-1 1-2 2-2z"/></svg></span>
+        <small>Phone</small>
+        <span class="v">010-5490-1146</span>
+      </a>
+      <a href="mailto:vl.director00@gmail.com" class="ci">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 7 9-7"/></svg></span>
+        <small>Mail</small>
+        <span class="v">vl.director00<br>@gmail.com</span>
+      </a>
+      <a href="https://www.instagram.com/value_light_" target="_blank" rel="noopener" class="ci">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>
+        <small>Instagram</small>
+        <span class="v">@value_light_</span>
+      </a>
+      <a href="https://map.naver.com/p/entry/place/1079886156" target="_blank" rel="noopener" class="ci">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4l4 7V5h4v14h-4l-4-7v7H6z"/></svg></span>
+        <small>Reservation</small>
+        <span class="v">네이버 예약</span>
+      </a>
+    </div>
+    <div class="contact-right">
+      <img class="mark-img" src="vl-symbol.png" alt="VL Symbol">
+      <span class="nm">VL VALUE LIGHT</span>
+      <span class="desc">IMAGE CONSULTING</span>
+    </div>
+  </div>
+</footer>
+<div class="foot-copy">© 2026 VL · VALUE LIGHT IMAGE CONSULTING. All Rights Reserved.</div>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.18,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40),{passive:true});
+(function(){var n=document.getElementById("nav");if(!n)return;var t=n.querySelector(".nav-toggle");var b=document.querySelector(".nav-backdrop");function c(){n.classList.remove("open");document.body.style.overflow=""}if(t){t.addEventListener("click",function(){var o=n.classList.toggle("open");document.body.style.overflow=o?"hidden":"";t.setAttribute("aria-expanded",o)})}if(b){b.addEventListener("click",c)}n.querySelectorAll(".nav-menu a").forEach(function(a){a.addEventListener("click",c)});})();
+</script>
+</body>
+</html>

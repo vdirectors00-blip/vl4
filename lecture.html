@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LECTURE | VL VALUE LIGHT</title>
+<meta name="description" content="인천 송도 1:1 프라이빗 토탈 컨설팅 — 얼굴타입·골격·퍼스널컬러 통합 진단">
+<meta property="og:type" content="website">
+<meta property="og:title" content="브이엘퍼스널컬러 · 프리미엄 토탈 이미지 컨설팅">
+<meta property="og:description" content="인천 송도 1:1 프라이빗 토탈 컨설팅 — 얼굴타입·골격·퍼스널컬러 통합 진단">
+<meta property="og:image" content="https://vdirectors00-blip.github.io/vl2/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://vdirectors00-blip.github.io/vl2/og-image.jpg">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* LECTURE HERO (풀와이드 + 우측 텍스트 오버레이) */
+.lec-hero{position:relative;width:100%;height:82vh;min-height:560px;max-height:820px;overflow:hidden;background:#fafafa}
+.lec-hero img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.lec-hero-txt{
+  position:absolute;right:8%;top:50%;transform:translateY(-50%);
+  max-width:560px;z-index:5;
+}
+.lec-eyebrow{font-size:14px;letter-spacing:5px;color:var(--gold-soft,#a48948);font-weight:600;text-transform:uppercase;margin-bottom:32px;display:block}
+.lec-hero-txt h2{font-size:42px;font-weight:800;letter-spacing:-.7px;line-height:1.3;color:#1a1a1a;margin-bottom:28px}
+.lec-hero-txt p{font-size:15.5px;color:#444;line-height:1.85;letter-spacing:.1px;margin-bottom:18px}
+
+.ac-intro{padding:120px 32px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center}
+.ac-intro .img{aspect-ratio:4/5;overflow:hidden;background:#eee}
+.ac-intro .img img{width:100%;height:100%;object-fit:cover}
+.ac-intro h2{font-size:42px;font-weight:800;letter-spacing:-.8px;line-height:1.2;margin-bottom:24px}
+.ac-intro h2 em{font-style:normal;font-weight:800;color:inherit}
+.ac-intro p{font-size:15.5px;line-height:1.9;color:#333;margin-bottom:18px}
+
+.courses{background:#ececea;color:var(--ink);padding:120px 32px}
+.courses .wrap{max-width:1280px;margin:0 auto}
+.courses .section-eyebrow{color:var(--gold-soft,#a48948)}
+.courses .section-head h2{color:var(--ink)}
+.courses .section-eyebrow::after{background:var(--gold-soft,#a48948)}
+.course-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-top:48px}
+.course-card{padding:48px 40px;background:#fff;border:1px solid rgba(0,0,0,.06);transition:background .4s,border-color .4s,box-shadow .4s,transform .4s}
+.course-card:hover{background:#fff;border-color:rgba(164,136,72,.4);box-shadow:0 12px 32px rgba(0,0,0,.08);transform:translateY(-3px)}
+.course-card .lvl{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-soft,#a48948);font-weight:700;margin-bottom:18px;display:block}
+.course-card h3{font-size:28px;font-weight:800;letter-spacing:-.4px;line-height:1.25;margin-bottom:18px;color:var(--ink)}
+.course-card p{color:#555;font-size:14.5px;line-height:1.85;margin-bottom:24px}
+.course-card ul{list-style:none;display:grid;gap:8px;margin-bottom:28px}
+.course-card ul li{font-size:14px;color:#333;padding-left:18px;position:relative}
+.course-card ul li::before{content:'';position:absolute;left:0;top:11px;width:10px;height:1px;background:var(--gold-soft,#a48948)}
+.course-card .meta{display:flex;justify-content:space-between;border-top:1px solid rgba(0,0,0,.08);padding-top:18px;font-size:13px;color:#666;letter-spacing:.5px}
+.course-card .meta strong{color:var(--ink);font-weight:700}
+
+/* CURRICULUM (원형 노드 단계별 플로우) */
+.curriculum{padding:120px 32px;max-width:1280px;margin:0 auto}
+.curr-grid{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:0;
+  margin-top:64px;max-width:1180px;margin-left:auto;margin-right:auto;
+  position:relative;
+}
+.curr-item{
+  position:relative;padding:0 8px;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+}
+.curr-item .node{
+  width:84px;height:84px;border-radius:50%;
+  background:#fff;border:2px solid var(--gold-soft,#a48948);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;
+  color:var(--gold-soft,#a48948);
+  margin-bottom:20px;position:relative;z-index:2;
+  transition:background .35s,color .35s,transform .35s,box-shadow .35s;
+}
+.curr-item:hover .node{
+  background:var(--gold-soft,#a48948);color:#fff;
+  transform:translateY(-3px);box-shadow:0 10px 24px rgba(164,136,72,.25);
+}
+/* 연결 점선 (각 노드 사이) */
+.curr-item:not(:last-child)::after{
+  content:'';position:absolute;top:42px;left:calc(50% + 50px);right:calc(-50% + 50px);
+  border-top:1.5px dashed rgba(164,136,72,.45);
+  z-index:1;
+}
+.curr-item .step{font-size:10.5px;letter-spacing:2.5px;color:var(--gold-soft,#a48948);font-weight:700;margin-bottom:8px;display:block;text-transform:uppercase}
+.curr-item h4{font-size:16px;font-weight:800;letter-spacing:-.2px;margin-bottom:8px;color:var(--ink)}
+.curr-item p{font-size:12.5px;color:#666;line-height:1.65;padding:0 4px}
+
+@media (max-width:1024px){
+  .curr-grid{grid-template-columns:repeat(3,1fr);gap:50px 12px}
+  /* 3개 단위로 끊긴 부분 점선 처리 — 3번째/6번째 항목 다음의 점선은 숨김 */
+  .curr-item:nth-child(3n)::after{display:none}
+}
+@media (max-width:600px){
+  .curr-grid{grid-template-columns:repeat(2,1fr);gap:44px 10px;margin-top:44px}
+  .curr-item:nth-child(3n)::after{display:block}
+  .curr-item:nth-child(2n)::after{display:none}
+  .curr-item .node{width:70px;height:70px;font-size:24px;margin-bottom:14px}
+  .curr-item:not(:last-child)::after{top:35px;left:calc(50% + 42px);right:calc(-50% + 42px)}
+  .curr-item h4{font-size:14px}
+  .curr-item p{font-size:11.5px}
+}
+
+.cert{background:#fafafa;padding:120px 32px;text-align:center}
+.cert .section-head{margin-bottom:48px}
+.cert-list{max-width:980px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.cert-card{background:#fff;padding:48px 28px;text-align:center}
+.cert-card h4{font-size:18px;font-weight:800;margin-bottom:8px;letter-spacing:-.2px}
+.cert-card p{font-size:13px;color:var(--mute);line-height:1.7}
+.cert-card .seal{font-size:11px;letter-spacing:2px;color:var(--primary);font-weight:700;margin-bottom:18px;display:block}
+
+@media (max-width:900px){
+  .ac-intro,.cert-list,.course-grid{grid-template-columns:1fr;gap:24px}
+  .ac-intro{padding:60px 16px;gap:32px}
+  .ac-intro h2{font-size:26px}
+  .lec-hero{height:auto;min-height:0;max-height:none;background:#fff}
+  .lec-hero img{height:48vh;min-height:280px;object-position:left center}
+  .lec-hero-txt{position:relative;right:auto;top:auto;transform:none;max-width:none;padding:48px 24px 60px;text-align:center;margin:0 auto}
+  .lec-eyebrow{font-size:11px;margin-bottom:18px;letter-spacing:4px}
+  .lec-hero-txt h2{font-size:22px;line-height:1.5;margin-bottom:20px}
+  .lec-hero-txt h2 br{display:none}
+  .lec-hero-txt p{font-size:13.5px;line-height:1.85;margin-bottom:14px}
+  .lec-hero-txt p br{display:none}
+  .courses,.curriculum,.cert{padding:60px 16px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  </defs>
+</svg>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo"><img src="logo2.png" alt="VL VALUE LIGHT"></a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-menu">
+    <a href="about.html">ABOUT</a>
+    <a href="service.html">SERVICE</a>
+    <a href="portfolio.html">PORTFOLIO</a>
+    <a href="lecture.html" class="current">LECTURE</a>
+    <a href="contact.html">CONTACT</a>
+  </div>
+</nav>
+<div class="nav-backdrop"></div>
+
+<!-- HERO VISUAL (lm-1 풀와이드 + 우측 텍스트 오버레이) -->
+<section class="lec-hero reveal">
+  <img src="lm-1.jpg" alt="VL Academy">
+  <div class="lec-hero-txt">
+    <span class="lec-eyebrow">MASTER CLASS</span>
+    <h2>자격 취득을 넘어,<br>현장에서 통하는 실전 커리큘럼</h2>
+    <p>VL 아카데미는 단순한 자격 취득을 위한 강의가 아닙니다.<br>15년 의류 브랜드 실무 경험과 일본 ICPA · 한국색채 협회 인증 강사의 노하우를 바탕으로 한,<br>실전 현장에서 즉시 통하는 커리큘럼을 제공합니다.</p>
+    <p>1인 컨설턴트로 독립하고자 하는 분, 메이크업·헤어·패션 종사자, 자기 분야에서 컬러·이미지<br>역량을 더하고자 하는 분 모두에게 열려있습니다.</p>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section class="courses reveal">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:24px">
+      <span class="section-eyebrow">Courses</span>
+      <h2>교육과정 안내</h2>
+    </div>
+    <div class="course-grid">
+      <div class="course-card">
+        <span class="lvl">Level 01 · Foundation</span>
+        <h3>퍼스널컬러 전문가 자격과정</h3>
+        <p>16계절 드레이핑 · 컬러 이론 · 진단 실습. 컬러 컨설턴트로 활동하기 위한 기초 자격 과정.</p>
+        <ul>
+          <li>16계절·8타입 드레이핑 진단법</li>
+          <li>컬러 매칭 · 코디 이론</li>
+          <li>실제 진단 실습 · 사례 분석</li>
+          <li>수료 후 자격증 발급</li>
+        </ul>
+        <div class="meta"><span>기간 · <strong>주 1회 · 총 8주</strong></span><span>상담 후 안내</span></div>
+      </div>
+      <div class="course-card">
+        <span class="lvl">Level 02 · Advanced</span>
+        <h3>일본 ICPA 얼굴형 · 파츠 자격과정</h3>
+        <p>얼굴 골격 · 파츠별 디테일 분석. 토탈 이미지 컨설팅을 위한 심화 자격 과정.</p>
+        <ul>
+          <li>ICPA 얼굴형 · 파츠 분석법</li>
+          <li>골격 진단 통합 적용</li>
+          <li>토탈 이미지 컨설팅 케이스</li>
+          <li>일본 ICPA 인증 자격증 발급</li>
+        </ul>
+        <div class="meta"><span>기간 · <strong>주 1회 · 총 10주</strong></span><span>상담 후 안내</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="curriculum reveal">
+  <div class="section-head">
+    <span class="section-eyebrow">Curriculum</span>
+    <h2>커리큘럼 구성</h2>
+  </div>
+  <div class="curr-grid">
+    <div class="curr-item"><span class="node">01</span><span class="step">Module 01</span><h4>컬러 이론</h4><p>3속성 · 4계절 분석법</p></div>
+    <div class="curr-item"><span class="node">02</span><span class="step">Module 02</span><h4>드레이핑 진단</h4><p>16계절 · 8타입 도출</p></div>
+    <div class="curr-item"><span class="node">03</span><span class="step">Module 03</span><h4>얼굴형 분석</h4><p>ICPA 기준 파츠 분석</p></div>
+    <div class="curr-item"><span class="node">04</span><span class="step">Module 04</span><h4>골격 진단</h4><p>스트레이트·웨이브·내추럴</p></div>
+    <div class="curr-item"><span class="node">05</span><span class="step">Module 05</span><h4>스타일링</h4><p>셔츠·수트·캐주얼 매칭</p></div>
+    <div class="curr-item"><span class="node">06</span><span class="step">Module 06</span><h4>현장 실습</h4><p>1:1 시뮬레이션 · 멘토링</p></div>
+  </div>
+</section>
+
+<!-- CERT -->
+<section class="cert reveal">
+  <div class="section-head">
+    <span class="section-eyebrow">Certifications</span>
+    <h2>강사 자격 & 인증</h2>
+  </div>
+  <div class="cert-list">
+    <div class="cert-card">
+      <span class="seal">JAPAN · ICPA</span>
+      <h4>얼굴형·파츠 진단 1급</h4>
+      <p>일본 ICPA 공식 인증<br>국내 보유자 소수</p>
+    </div>
+    <div class="cert-card">
+      <span class="seal">KOREA</span>
+      <h4>골격 진단 1급</h4>
+      <p>골격 유형별 코디 전문가<br>인증 보유</p>
+    </div>
+    <div class="cert-card">
+      <span class="seal">KOREA · KCA</span>
+      <h4>한국색채 협회 인증</h4>
+      <p>색채학 인증 강사<br>교육 자격 보유</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="text-align:center;padding:120px 32px">
+  <h2 style="font-size:40px;font-weight:800;letter-spacing:-.8px;line-height:1.2;margin-bottom:18px">전문가의 길,<br>VL 아카데미에서 시작하세요.</h2>
+  <p style="color:var(--mute);font-size:15px;margin-bottom:40px">교육과정 및 일정은 상담을 통해 안내드립니다.</p>
+  <a href="contact.html" class="btn-solid">교육 문의 <span class="ico"><svg><use href="#i-arrow"/></svg></span></a>
+</section>
+
+<footer class="foot">
+  <div class="contact-grid">
+    <div class="contact-left">
+      <span class="tag">Contact</span>
+      <h3>협업 및 강의 문의</h3>
+      <p>기업 강의, 컨설팅, 협업 제안 등<br>언제든지 문의주세요.</p>
+      <a href="mailto:vl.director00@gmail.com" class="btn-inquire">문의하기</a>
+    </div>
+    <div class="contact-info">
+      <a href="tel:01054901146" class="ci">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-3 2c1 2 3 4 5 5l2-3 5 2v4c0 1-1 2-2 2-9 0-15-6-15-15 0-1 1-2 2-2z"/></svg></span>
+        <small>Phone</small>
+        <span class="v">010-5490-1146</span>
+      </a>
+      <a href="mailto:vl.director00@gmail.com" class="ci">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 7 9-7"/></svg></span>
+        <small>Mail</small>
+        <span class="v">vl.director00<br>@gmail.com</span>
+      </a>
+      <a href="https://www.instagram.com/value_light_" target="_blank" rel="noopener" class="ci">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>
+        <small>Instagram</small>
+        <span class="v">@value_light_</span>
+      </a>
+      <a href="https://map.naver.com/p/entry/place/1079886156" target="_blank" rel="noopener" class="ci">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4l4 7V5h4v14h-4l-4-7v7H6z"/></svg></span>
+        <small>Reservation</small>
+        <span class="v">네이버 예약</span>
+      </a>
+    </div>
+    <div class="contact-right">
+      <img class="mark-img" src="vl-symbol.png" alt="VL Symbol">
+      <span class="nm">VL VALUE LIGHT</span>
+      <span class="desc">IMAGE CONSULTING</span>
+    </div>
+  </div>
+</footer>
+<div class="foot-copy">© 2026 VL · VALUE LIGHT IMAGE CONSULTING. All Rights Reserved.</div>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.18,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40),{passive:true});
+(function(){var n=document.getElementById("nav");if(!n)return;var t=n.querySelector(".nav-toggle");var b=document.querySelector(".nav-backdrop");function c(){n.classList.remove("open");document.body.style.overflow=""}if(t){t.addEventListener("click",function(){var o=n.classList.toggle("open");document.body.style.overflow=o?"hidden":"";t.setAttribute("aria-expanded",o)})}if(b){b.addEventListener("click",c)}n.querySelectorAll(".nav-menu a").forEach(function(a){a.addEventListener("click",c)});})();
+</script>
+</body>
+</html>
