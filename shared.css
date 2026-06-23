@@ -84,12 +84,14 @@ a{color:inherit;text-decoration:none}
 .reveal{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.5,0,.2,1),transform 1s cubic-bezier(.5,0,.2,1)}
 .reveal.in{opacity:1;transform:translateY(0)}
 
-/* BUTTONS */
-.btn-solid{display:inline-flex;align-items:center;gap:14px;background:var(--ink);color:#fff;padding:18px 44px;font-size:12px;letter-spacing:3px;text-transform:uppercase;font-weight:700;transition:background .3s,color .3s}
-.btn-solid:hover{background:var(--gold);color:var(--ink)}
-.btn-line{display:inline-flex;align-items:center;gap:14px;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--ink);padding-bottom:10px;border-bottom:1px solid var(--ink);transition:opacity .3s,color .3s,border-color .3s}
-.btn-line:hover{color:var(--gold-soft);border-color:var(--gold-soft)}
-.btn-solid .ico,.btn-line .ico{width:14px;height:14px}
+/* BUTTONS — 전부 원형(pill), 화살표 강제 제거 */
+.btn-solid,a.btn-solid,button.btn-solid{display:inline-flex !important;align-items:center !important;justify-content:center !important;background:var(--ink) !important;color:#fff !important;padding:16px 44px !important;border-radius:999px !important;font-size:12px !important;letter-spacing:3px !important;text-transform:uppercase !important;font-weight:700 !important;border:0 !important;gap:0 !important;transition:background .3s,color .3s,transform .3s}
+.btn-solid:hover{background:var(--gold) !important;color:var(--ink) !important;transform:translateY(-2px)}
+.btn-solid::after,.btn-solid::before,.btn-solid .ico{display:none !important;content:none !important}
+
+.btn-line,a.btn-line,button.btn-line{display:inline-flex !important;align-items:center !important;justify-content:center !important;font-size:11.5px !important;letter-spacing:3px !important;text-transform:uppercase !important;font-weight:700 !important;color:var(--ink) !important;padding:14px 32px !important;background:transparent !important;border:1px solid var(--ink) !important;border-radius:999px !important;gap:0 !important;transition:background .3s,color .3s,border-color .3s}
+.btn-line:hover{background:var(--ink) !important;color:#fff !important}
+.btn-line::after,.btn-line::before,.btn-line .ico{display:none !important;content:none !important}
 
 /* ── FOOTER (시안10 메인과 동일) ── */
 footer.foot{background:var(--ink);color:#fff;padding:96px 56px 80px;border-top:1px solid var(--line-d)}
@@ -101,14 +103,15 @@ footer.foot .contact-grid{
 footer.foot .contact-left .tag{font-size:11px;letter-spacing:3.5px;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:18px;display:block}
 footer.foot .contact-left h3{font-size:26px;font-weight:700;letter-spacing:-.3px;margin-bottom:14px;line-height:1.4}
 footer.foot .contact-left p{font-size:13.5px;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:24px}
-.btn-inquire{
-  display:inline-flex;align-items:center;gap:14px;
-  padding:14px 30px;background:var(--gold);color:var(--ink);
-  font-size:11.5px;letter-spacing:3px;text-transform:uppercase;font-weight:700;
-  transition:background .3s;
+.btn-inquire,a.btn-inquire,button.btn-inquire,footer.foot .btn-inquire,footer.foot a.btn-inquire{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;
+  padding:15px 38px !important;background:var(--gold) !important;color:var(--ink) !important;
+  border-radius:999px !important;border:0 !important;gap:0 !important;
+  font-size:11.5px !important;letter-spacing:3px !important;text-transform:uppercase !important;font-weight:700 !important;
+  transition:background .3s,color .3s,transform .3s;
 }
-.btn-inquire:hover{background:#3a3a3e}
-.btn-inquire::after{content:'→';font-size:13px}
+.btn-inquire:hover,footer.foot .btn-inquire:hover{background:#fff !important;color:var(--ink) !important;transform:translateY(-2px)}
+.btn-inquire::after,.btn-inquire::before,footer.foot .btn-inquire::after,footer.foot .btn-inquire::before{display:none !important;content:none !important}
 footer.foot .contact-info{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;border-left:1px solid var(--line-d);border-right:1px solid var(--line-d);padding:0 36px}
 footer.foot .ci{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;padding:14px 6px}
 footer.foot .ci .ic{width:auto;height:auto;border:0;border-radius:0;background:none;display:flex;align-items:center;justify-content:center;color:var(--gold)}
